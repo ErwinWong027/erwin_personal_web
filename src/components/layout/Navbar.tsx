@@ -8,8 +8,7 @@ import { useState, useEffect, useRef } from "react";
 const homeChildren = [
   { key: "aiChat", href: "#ai-chat" },
   { key: "about", href: "#about" },
-  { key: "projects", href: "#projects" },
-  { key: "gallery", href: "#gallery" },
+  { key: "projectGallery", href: "#project-gallery" },
 ] as const;
 
 const standalonePages = [

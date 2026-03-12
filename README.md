@@ -27,18 +27,17 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Sections (8 total)
+## Sections (7 total)
 
 | # | Section | ID | Description |
 |---|---|---|---|
 | 1 | **Hero** | `#hero` | Full-screen intro, typewriter animation, CTA buttons |
-| 2 | **About** | `#about` | Bio, 4 stat cards, skill tags |
-| 3 | **Timeline** | `#timeline` | macOS Time Machine-style experience timeline (9 nodes, jelly card transitions) |
-| 4 | **Projects** | `#projects` | 4 project cards in 2×2 grid with gradient top bars |
-| 5 | **AI Methodology** | `#ai-method` | How this site was built — 4-step process with real inputs/outputs |
-| 6 | **AI Chat** | `#ai-chat` | Interactive assistant powered by Qwen-Plus, answers from portfolio data |
-| 7 | **Gallery** | `#gallery` | iOS widget-style video cover cards, macOS link confirmation dialog |
-| 8 | **Contact** | `#contact` | Form + email/wechat/location info |
+| 2 | **AI Chat** | `#ai-chat` | Interactive assistant powered by Qwen-Plus, answers from portfolio data |
+| 3 | **About** | `#about` | Bio, 4 stat cards, skill tags |
+| 4 | **Project Gallery** | `#project-gallery` | 4 project-work pairs in 2×2 grid, work cover (left) + project info (right) |
+| 5 | **Timeline** | `#timeline` | macOS Time Machine-style experience timeline (9 nodes, jelly card transitions) |
+| 6 | **AI Methodology** | `#ai-method` | How this site was built — 4-step process with real inputs/outputs |
+| 7 | **Contact** | `#contact` | Form + email/wechat/location info |
 
 ## Project Structure
 
@@ -58,12 +57,11 @@ src/
 │   │   └── ScrollProgress.tsx  # Top progress bar
 │   ├── sections/
 │   │   ├── Hero.tsx
-│   │   ├── About.tsx
-│   │   ├── Timeline.tsx
-│   │   ├── Projects.tsx
-│   │   ├── AIMethodology.tsx
 │   │   ├── AIChat.tsx
-│   │   ├── Gallery.tsx
+│   │   ├── About.tsx
+│   │   ├── ProjectGallery.tsx
+│   │   ├── Timeline.tsx
+│   │   ├── AIMethodology.tsx
 │   │   └── Contact.tsx
 │   └── ui/
 │       ├── ThemeProvider.tsx
@@ -100,7 +98,7 @@ src/
 |---|---|---|
 | `DASHSCOPE_API_KEY` | Yes (for AI chat) | Qwen-Plus API key from [DashScope](https://dashscope.console.aliyun.com/) |
 
-## Changelog & Iteration History
+## 迭代日志和AI交互历史
 
 This website was built entirely through human-AI conversation. Below is the complete record of every iteration round, from the initial idea to the current state.
 
@@ -341,13 +339,42 @@ src/app/[locale]/
 
 ### v1.3 — UI 细节优化与打字机特效 (Round 13)
 
-**User Input & AI Output**: 移除导航栏主题切换按钮，新增语言切换框（分段控制器设计，左侧"中"、右侧"EN"，当前语言高亮显示），保留Globe图标并置于语言框左侧；为AI助手欢迎语添加打字机特效，"你好！"静态显示，"我是吴邪的 AI 助手。可以通过我了解他。"动态逐字呈现并循环播放（打字→暂停→删除→重新开始）。修改涉及 `Navbar.tsx`（UI重构）、`AIChat.tsx`（打字机动画逻辑）、`zh.json`（欢迎语文案更新）。
+**User Input**: 移除导航栏主题切换按钮，新增语言切换框（分段控制器设计），为AI助手欢迎语添加打字机特效。
 
-**修改文件**: `page.tsx`（调整 Section 顺序为 Hero→AIChat→About→Projects→Gallery）、`Navbar.tsx`（重构为下拉菜单结构）、`zh.json`/`en.json`（更新导航文案），创建 timeline/ai-methodology/contact 三个独立页面。
+**AI Output**:
+- `Navbar.tsx`: 移除主题切换按钮，新增语言切换框（左侧"中"、右侧"EN"，当前语言高亮显示），保留Globe图标
+- `AIChat.tsx`: 添加打字机动画逻辑，"你好！"静态显示，"我是吴邪的 AI 助手。可以通过我了解他。"动态逐字呈现并循环播放
+- `zh.json`: 更新欢迎语文案
 
-**架构决策**: 将履历、AI 方法论、联系方式拆分为独立页面以优化长内容阅读体验，首页保留 5 个核心 Section 控制合理长度，AI 助手移至第 2 位提升交互优先级，符合"先吸引后深入"的 UX 原则。
+**架构决策**: 将履历、AI 方法论、联系方式拆分为独立页面以优化长内容阅读体验，首页保留 5 个核心 Section 控制合理长度，AI 助手移至第 2 位提升交互优先级。
 
+---
 
+### v1.4 — 项目作品展示合并 (Round 14)
+
+**User Input**: 精选项目和作品展示合并，标题为"项目作品展示"，副标题"从算法设计到工程落地"。作品放在项目左边，合并为一个容器，一行显示2个项目作品卡片。
+
+**AI Output**:
+- **新建文件**: `src/components/sections/ProjectGallery.tsx` — 合并组件，作品封面（左）+ 项目信息（右）的横向布局
+- **删除文件**: `Projects.tsx`, `Gallery.tsx` — 旧组件已移除
+- **修改文件**:
+  - `page.tsx`: 替换 Projects 和 Gallery 为 ProjectGallery
+  - `Navbar.tsx`: 更新导航结构，合并为单一导航项
+  - `zh.json`/`en.json`: 新增 `projectGallery` 命名空间
+
+**布局设计**:
+- 作品封面：固定宽度 `w-28`，渐变背景 + 播放按钮 + 标签，删除作品标题
+- 项目信息：`flex-1` 自适应，包含标题、角色、日期、描述、标签
+- 响应式：桌面端一行2个，移动端一行1个
+- 整体缩小：字体 `text-xs`/`text-sm`，间距 `p-4`，标签 `px-2 py-0.5`
+
+**配对关系**:
+| 作品（左） | 项目（右） |
+|-----------|-----------|
+| MATLAB 地震信号处理实战 | 微地震事件检测与分析软件系统 |
+| BIM 建模从零到一 | 智慧校园综合楼 BIM 建模项目 |
+| AI 辅助建站全过程 | 字节跑动 · 工程数字化实习 |
+| 工程数字化经验分享 | 东凤汽车 · 施工管理实习 |
 
 ---
 
@@ -355,17 +382,17 @@ src/app/[locale]/
 
 | Metric | Value |
 |---|---|
-| Total conversation rounds | 12 |
-| Total source files | 25+ |
-| Sections built | 8 |
+| Total conversation rounds | 14 |
+| Total source files | 23+ |
+| Sections built | 7 |
 | Languages supported | 2 (中文 / English) |
-| i18n keys | 120+ |
+| i18n keys | 130+ |
 | Hand-written lines of code | 0 |
 | Build tool | Cursor + Claude |
 | AI chat backend | Qwen-Plus (DashScope) |
 | First successful build | Round 3 (v0.3) |
 | Time from empty directory to running site | 1 conversation round |
-| Latest iteration | v1.2 (UI refinement + cache fix) |
+| Latest iteration | v1.4 (Project Gallery merge) |
 
 ## Built with AI
 

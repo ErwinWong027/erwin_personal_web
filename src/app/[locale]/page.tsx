@@ -1,8 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { AIChat } from "@/components/sections/AIChat";
 import { About } from "@/components/sections/About";
-import { Projects } from "@/components/sections/Projects";
-import { Gallery } from "@/components/sections/Gallery";
+import { ProjectGallery } from "@/components/sections/ProjectGallery";
 
 export default function Home() {
   return (
@@ -10,8 +9,7 @@ export default function Home() {
       <Hero />
       <AIChat />
       <About />
-      <Projects />
-      <Gallery />
+      <ProjectGallery />
     </>
   );
 }
