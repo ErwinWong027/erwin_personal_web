@@ -6,14 +6,16 @@ import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const skills = [
-  "BIM 建模",
-  "MATLAB",
-  "地震数据分析",
-  "结构设计",
-  "工程数字化",
-  "信号处理",
+  "AI Agent 设计",
+  "产品经理",
+  "SQL",
   "Python",
-  "数据可视化",
+  "数据分析",
+  "A/B 实验",
+  "Scrum / SAFe",
+  "全栈开发",
+  "RAG",
+  "Dify",
 ];
 
 export function About() {
@@ -60,7 +62,7 @@ export function About() {
           <AnimateOnScroll className="lg:col-span-3">
             <div className="flex items-start gap-6">
               <div className="hidden h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-100 to-primary-200 text-2xl font-bold text-primary-700 sm:flex dark:from-primary-900/50 dark:to-primary-800/50 dark:text-primary-300">
-                吴
+                E
               </div>
               <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
                 {t("description")}

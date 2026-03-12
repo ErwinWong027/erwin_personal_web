@@ -33,10 +33,10 @@ const gradients = [
 ];
 
 const projectTags = [
-  ["MATLAB", "信号处理", "软著"],
-  ["BIM", "结构设计", "一等奖"],
-  ["BIM", "数据管理", "数字化"],
-  ["施工管理", "质量安全", "资料归档"],
+  ["Dify", "AI Chatbot", "新能源"],
+  ["多模态", "PDF解析", "名片生成"],
+  ["RAG", "Qwen3", "数字分身"],
+  ["AI Agent", "Vision-loop", "自动填写"],
   ["三创赛", "商业模式", "校特等"],
   ["三创赛", "省二", "指导老师奖"],
   ["互联网+", "创业", "创新"],
@@ -197,7 +197,7 @@ export function ProjectGallery() {
   }[] = [
     {
       workTagKey: "work1_tag" as const,
-      workUrl: "https://www.douyin.com/",
+      workUrl: "https://github.com/ErwinWong027/findbestev",
       imageUrl: null,
       projectTitleKey: "project1_title" as const,
       projectRoleKey: "project1_role" as const,
@@ -206,7 +206,7 @@ export function ProjectGallery() {
     },
     {
       workTagKey: "work2_tag" as const,
-      workUrl: "https://www.douyin.com/",
+      workUrl: "https://github.com/ErwinWong027/DEEP-HACKATHON-2025",
       imageUrl: null,
       projectTitleKey: "project2_title" as const,
       projectRoleKey: "project2_role" as const,
@@ -215,7 +215,7 @@ export function ProjectGallery() {
     },
     {
       workTagKey: "work3_tag" as const,
-      workUrl: "https://www.douyin.com/",
+      workUrl: "https://github.com/ErwinWong027/autochat-bot",
       imageUrl: null,
       projectTitleKey: "project3_title" as const,
       projectRoleKey: "project3_role" as const,
@@ -224,7 +224,7 @@ export function ProjectGallery() {
     },
     {
       workTagKey: "work4_tag" as const,
-      workUrl: "https://www.douyin.com/",
+      workUrl: "https://jianliark.com/",
       imageUrl: null,
       projectTitleKey: "project4_title" as const,
       projectRoleKey: "project4_role" as const,

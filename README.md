@@ -1,6 +1,6 @@
-# Wu Xie Portfolio
+# Erwin Wang Portfolio
 
-Personal brand website for Wu Xie (吴邪) — Geophysical Engineer & Engineering Digitalization.
+Personal brand website for Wang Zihan (Erwin) — AI Product Manager & Full-Stack Developer.
 
 Built entirely through human-AI conversation, zero hand-written code.
 
@@ -35,7 +35,7 @@ Open [http://localhost:3000](http://localhost:3000).
 | 2 | **AI Chat** | `#ai-chat` | Interactive assistant powered by Qwen-Plus, answers from portfolio data |
 | 3 | **About** | `#about` | Bio, 4 stat cards, skill tags |
 | 4 | **Project Gallery** | `#project-gallery` | 4 project-work pairs in 2×2 grid, work cover (left) + project info (right) |
-| 5 | **Timeline** | `#timeline` | macOS Time Machine-style experience timeline (9 nodes, jelly card transitions) |
+| 5 | **Timeline** | `#timeline` | macOS Time Machine-style experience timeline (13 nodes, jelly card transitions) |
 | 6 | **AI Methodology** | `#ai-method` | How this site was built — 4-step process with real inputs/outputs |
 | 7 | **Contact** | `#contact` | Form + email/wechat/location info |
 
@@ -446,6 +446,39 @@ src/app/[locale]/
 
 ---
 
+### v1.7 — 内容重写：mockProfile → realProfile (Round 17)
+
+**User Input**: 阅读 readme 和前端项目，根据 `realProfile.json` 重写所有内容，荣誉奖项保持不变。
+
+**背景**:
+网站原先使用虚构人物"吴邪"（浙大地球物理工程师）作为内容原型（`mockProfile.json`），现全面替换为真实主人公王子涵（Erwin）——AI 产品经理，具有 EDHEC 商学院、字节跳动、求职方舟等真实背景。
+
+**修改范围**:
+
+**i18n 内容 (zh.json / en.json)**:
+- `hero`: 姓名改为 `Erwin`，职位改为 `AI 产品经理 · 全栈开发`，tagline 更新
+- `about`: 描述、副标题、统计数据（EDHEC FT Top10、4段实习、5个项目、3次黑客松）
+- `aiChat`: 助手名称、欢迎语、建议问题全部更新为 Erwin 相关
+- `timeline`: 从 9 个条目扩展为 **13 个条目**，覆盖 2018.09 江西财大 → 2025.12 深客松
+- `projectGallery`: project1–4 和 work1–4 改为黑客松与 AI PM 内容；work5–15 和 project5–15（荣誉奖项）保持不变
+- `contact.location_value`: 改为深圳 / 杭州
+- `footer.copyright`: 改为 Erwin Wang
+- `iterationSummary` / `aiMethod`: `mockProfile.json` 引用改为 `realProfile.json`
+
+**组件修改**:
+- `About.tsx`: skills 数组改为 AI PM 技能栈（AI Agent、SQL、RAG、Dify…）；头像字母 `吴` → `E`
+- `Timeline.tsx`: entries 数组从 9 项扩展至 13 项，含正确日期、图标和 i18n 键
+- `ProjectGallery.tsx`: 前 4 个 items 的 URL 改为真实 GitHub 链接；前 4 个 projectTags 更新；荣誉奖项部分不变
+
+**AI 知识库**:
+- `portfolio-knowledge.ts`: 完整重写，包含 Erwin 的教育（3所院校）、4段工作/实习经历、3个黑客松项目、获奖情况与联系方式
+- `system-prompt.ts`: AI 助手身份从"Wu Xie"更新为"Erwin (王子涵)"
+
+**核心价值**:
+网站从虚构人物完全切换到真实主人公，内容与 `realProfile.json` 全面对齐，AI 助手能够正确回答关于 Erwin 真实背景的提问。
+
+---
+
 ### v1.6 — 项目与奖项分离展示 (Round 16)
 
 **User Input**: 奖项和上面的项目产品展示分开吧，写个小标题：荣誉奖项。
@@ -489,17 +522,17 @@ src/app/[locale]/
 
 | Metric | Value |
 |---|---|
-| Total conversation rounds | 16 |
+| Total conversation rounds | 17 |
 | Total source files | 25+ |
 | Sections built | 8 |
 | Languages supported | 2 (中文 / English) |
-| i18n keys | 220+ |
+| i18n keys | 260+ |
 | Hand-written lines of code | 0 |
 | Build tool | Cursor + Claude |
 | AI chat backend | Qwen-Plus (DashScope) |
 | First successful build | Round 3 (v0.3) |
 | Time from empty directory to running site | 1 conversation round |
-| Latest iteration | v1.6 (项目与奖项分离) |
+| Latest iteration | v1.7 (内容重写 realProfile) |
 
 ## Built with AI
 
