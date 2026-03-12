@@ -500,29 +500,14 @@ src/app/[locale]/
 **User Input**: 
 1. AI 回答采用流式输出
 2. 对话中的用户和 AI 头像去掉
-
-**问题排查与修复**:
-- 发现 AI Chat 返回 "Internal server error"
-- 根因：`portfolio-knowledge.ts` 缺少 `publications` 和 `patents` 字段，但 `system-prompt.ts` 尝试调用 `.map()` 导致 `TypeError`
-- 修复：在 `portfolio-knowledge.ts` 中添加空数组 `publications: []` 和 `patents: []`
-
-**流式输出实现**:
-
 **后端修改** (`src/app/api/chat/route.ts`):
 - 添加 `stream: true` 参数调用 Qwen API
 - 将 SSE 流解析并转换为纯文本流返回
 - 使用 `ReadableStream` 逐块读取 AI 回复内容
-
 **前端修改** (`src/components/sections/AIChat.tsx`):
 - 先创建空的 assistant 消息占位
 - 使用 `res.body?.getReader()` 读取流
 - 实时 `setMessages` 更新内容，实现打字机效果
-
-**UI 精简**:
-- 移除消息气泡左侧的用户头像（`User` 图标）
-- 移除 AI 助手的机器人头像（`Bot` 图标）
-- 对话界面更简洁，聚焦内容本身
-
 **核心价值**:
 AI 回复从"等待整段返回"变为"实时逐字显示"，用户体验更流畅自然；同时精简 UI 元素，让对话内容成为视觉焦点。
 

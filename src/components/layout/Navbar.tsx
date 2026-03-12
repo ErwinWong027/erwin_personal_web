@@ -96,7 +96,7 @@ export function Navbar() {
           onClick={handleLogoClick}
           className="text-lg font-bold tracking-tight"
         >
-          {currentLocale === "zh" ? "王子涵" : "Wang Zihan"}
+          {currentLocale === "zh" ? "王子涵" : "Erwin"}
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">

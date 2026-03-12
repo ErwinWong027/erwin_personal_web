@@ -14,9 +14,9 @@ const notoSansSC = Noto_Sans_SC({
 });
 
 export const metadata: Metadata = {
-  title: "王子涵 | Wang Zihan — Geophysical Engineer",
+  title: "王子涵 | Erwin — AI 产品经理",
   description:
-    "地球物理工程师，浙江大学地质工程硕士。用数据与算法，让地下世界不再沉默。",
+    "AI 产品经理，法国EDHEC商学院硕士。前字节跳动搜索产品实习，求职方舟AI产品经理。",
 };
 
 export default function RootLayout({

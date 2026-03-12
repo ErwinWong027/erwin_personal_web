@@ -75,10 +75,10 @@ ProjectGallery
 └── 项目作品展示  ← 合并后的导航项
 ```
 
-### 5. 删除旧组件
+### 5. 清理旧组件
 **删除文件**:
-- `src/components/sections/Projects.tsx`
-- `src/components/sections/Gallery.tsx`
+- `src/components/sections/Projects.tsx` (可选保留作为备份)
+- `src/components/sections/Gallery.tsx` (可选保留作为备份)
 
 **更新导入**: 在 `page.tsx` 中移除旧组件导入
 
