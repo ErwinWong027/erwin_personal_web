@@ -3,6 +3,7 @@ import { AIChat } from "@/components/sections/AIChat";
 import { About } from "@/components/sections/About";
 import { IterationSummary } from "@/components/sections/IterationSummary";
 import { ProjectGallery } from "@/components/sections/ProjectGallery";
+import { HonorsGallery } from "@/components/sections/HonorsGallery";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <About />
       <IterationSummary />
       <ProjectGallery />
+      <HonorsGallery />
     </>
   );
 }

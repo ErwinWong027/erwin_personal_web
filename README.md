@@ -1,8 +1,18 @@
-# Wu Xie Portfolio
+# Wu Xie Portfolio | 吴邪个人品牌网站
 
-Personal brand website for Wu Xie (吴邪) — Geophysical Engineer & Engineering Digitalization.
+> 🎨 **Personal brand website for Wu Xie (吴邪)** — Geophysical Engineer & Engineering Digitalization Expert
+> 
+> 🤖 **Built entirely through human-AI conversation** — Zero hand-written code, 100% AI-assisted development
 
-Built entirely through human-AI conversation, zero hand-written code.
+## 🌟 Highlights
+
+- **9 Interactive Sections** — From hero introduction to honor certificates showcase
+- **AI-Powered Chat** — Qwen-Plus assistant trained on portfolio knowledge
+- **Bilingual Support** — Seamless Chinese / English switching
+- **Modern Tech Stack** — Next.js 16, Tailwind CSS 4, Motion, TypeScript
+- **Responsive Design** — Mobile-first approach with adaptive layouts
+- **Dark Mode** — System preference detection with manual toggle
+- **Certificate Gallery** — 11 honor certificates with image preview and PDF support
 
 ## Tech Stack
 
@@ -27,17 +37,19 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Sections (7 total)
+## Sections (8 total)
 
 | # | Section | ID | Description |
 |---|---|---|---|
 | 1 | **Hero** | `#hero` | Full-screen intro, typewriter animation, CTA buttons |
 | 2 | **AI Chat** | `#ai-chat` | Interactive assistant powered by Qwen-Plus, answers from portfolio data |
 | 3 | **About** | `#about` | Bio, 4 stat cards, skill tags |
-| 4 | **Project Gallery** | `#project-gallery` | 4 project-work pairs in 2×2 grid, work cover (left) + project info (right) |
-| 5 | **Timeline** | `#timeline` | macOS Time Machine-style experience timeline (9 nodes, jelly card transitions) |
-| 6 | **AI Methodology** | `#ai-method` | How this site was built — 4-step process with real inputs/outputs |
-| 7 | **Contact** | `#contact` | Form + email/wechat/location info |
+| 4 | **Iteration Summary** | `#iteration-summary` | Iteration summary and key achievements |
+| 5 | **Project Gallery** | `#projects` | 4 core projects in 2-column grid with work covers and project details |
+| 6 | **Honors Gallery** | `#honors` | 11 honor certificates and awards in 4-column grid with certificate images |
+| 7 | **Timeline** | `#timeline` | macOS Time Machine-style experience timeline (9 nodes, jelly card transitions) |
+| 8 | **AI Methodology** | `#ai-method` | How this site was built — 4-step process with real inputs/outputs |
+| 9 | **Contact** | `#contact` | Form + email/wechat/location info |
 
 ## Project Structure
 
@@ -59,7 +71,9 @@ src/
 │   │   ├── Hero.tsx
 │   │   ├── AIChat.tsx
 │   │   ├── About.tsx
-│   │   ├── ProjectGallery.tsx
+│   │   ├── IterationSummary.tsx
+│   │   ├── ProjectGallery.tsx      # Simplified: 4 core projects only
+│   │   ├── HonorsGallery.tsx       # New: 11 honor certificates
 │   │   ├── Timeline.tsx
 │   │   ├── AIMethodology.tsx
 │   │   └── Contact.tsx
@@ -88,7 +102,8 @@ src/
 - **Scroll progress bar** — 2px gradient indicator at page top
 - **Scroll-triggered animations** — fadeInUp via Motion `whileInView`
 - **Timeline jelly effect** — spring-based card transitions on node click
-- **iOS-style gallery** — rounded cards with play overlay, macOS confirmation dialog
+- **iOS-style gallery** — Rounded cards with play overlay, macOS confirmation dialog
+- **Honors Gallery** — Certificate showcase with image preview, PDF support, amber/gold theme
 - **AI chat assistant** — Qwen-Plus powered, scoped to portfolio knowledge only
 - **Responsive** — mobile-first, hamburger menu, adaptive grids
 
