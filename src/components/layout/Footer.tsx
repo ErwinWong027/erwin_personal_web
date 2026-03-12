@@ -14,7 +14,7 @@ export function Footer() {
             {t("source")}
           </span>
           <a
-            href="mailto:wuxie@zju.edu.cn"
+            href="mailto:zihan.wang@edhec.com"
             className="text-slate-400 transition-colors hover:text-primary-600 dark:text-slate-500 dark:hover:text-primary-400"
             aria-label="Email"
           >

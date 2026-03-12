@@ -34,13 +34,13 @@ export function Contact() {
     {
       icon: Mail,
       label: t("email_label"),
-      value: "wuxie@zju.edu.cn",
-      href: "mailto:wuxie@zju.edu.cn",
+      value: "zihan.wang@edhec.com",
+      href: "mailto:zihan.wang@edhec.com",
     },
     {
       icon: MessageCircle,
       label: t("wechat_label"),
-      value: "wuxie_zju",
+      value: "brilliantbiscuit",
       href: undefined,
     },
     {
