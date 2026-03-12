@@ -13,7 +13,7 @@ const homeChildren = [
 ] as const;
 
 const standalonePages = [
-  { key: "timeline", href: "/timeline" },
+  { key: "experience", href: "/experience" },
   { key: "aiMethod", href: "/ai-methodology" },
   { key: "contact", href: "/contact" },
 ] as const;

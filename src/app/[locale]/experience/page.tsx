@@ -1,10 +1,10 @@
-import { Timeline } from "@/components/sections/Timeline";
+import { Experience } from "@/components/sections/Experience";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
-export default function TimelinePage() {
+export default function ExperiencePage() {
   const t = useTranslations("timeline");
 
   return (
@@ -18,7 +18,7 @@ export default function TimelinePage() {
           返回首页
         </Link>
         <SectionHeading title={t("title")} subtitle={t("subtitle")} />
-        <Timeline />
+        <Experience />
       </div>
     </main>
   );

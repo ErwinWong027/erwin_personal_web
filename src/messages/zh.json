@@ -5,8 +5,8 @@
     "about": "关于我",
     "iterationSummary": "网站迭代策略",
     "projectGallery": "项目作品展示",
-    "timeline": "履历",
-    "aiMethod": "AI 方法论",
+    "experience": "履历",
+    "aiMethod": "网站构建过程",
     "contact": "联系方式"
   },
   "hero": {
@@ -33,7 +33,7 @@
   },
   "iterationSummary": {
     "title": "这个网站是如何迭代出来的",
-    "intro": "我把这个个人网站当作一个产品来构建：先定义面向谁、要传达什么，再借助 AI 完成规划、实现、交互设计与后续打磨。",
+    "intro": "\"定义—生成—评估—迭代\"逐步收敛",
     "stage1_title": "问题定义",
     "stage1_summary": "先把开放式作业要求，转成清晰的产品目标、目标受众和最小可行方案。",
     "stage1_bullet1": "面向招聘方与面试官设计浏览路径",
@@ -128,6 +128,10 @@
     "logic4_title": "先上线 MVP，再继续迭代",
     "logic4_body": "我没有追求一步到位，而是先完成可运行版本，再围绕叙事、交互、导航和长内容结构继续优化。",
     "section2_title": "四阶段演进",
+    "phase1_label": "阶段一",
+    "phase2_label": "阶段二",
+    "phase3_label": "阶段三",
+    "phase4_label": "阶段四",
     "phase1_title": "阶段一：问题定义",
     "phase1_paragraph": "最开始，我先拆解任务要求，并把它转成一个更明确的产品问题：这个网站是给谁看的，对方最需要在最短时间内看到什么，什么样的体验最能建立专业感和信任感。",
     "phase1_what_changed": "明确目标用户是招聘方与面试官\n设定整体风格为极简、专业、可信\n用 Gemini、Trae 等工具辅助产出 prompt、技术栈与建站方案",
@@ -244,7 +248,9 @@
     "t13_title": "深客松（抖音创变者计划）· 新能源汽车智能售前",
     "t13_subtitle": "产品与全栈开发",
     "t13_desc": "面向新能源汽车选购场景设计 AI 咨询平台，基于 Dify 构建智能选车系统，集成 AI Chatbot 围绕预算、续航、充电条件等维度的智能问答与个性化推荐，实现自动化售前咨询。",
-    "t13_tag": "项目"
+    "t13_tag": "项目",
+    "section_education": "教育经历",
+    "section_work": "工作经历"
   },
   "gallery": {
     "title": "作品展示",

@@ -5,8 +5,8 @@
     "about": "About",
     "iterationSummary": "Website Iteration Strategy",
     "projectGallery": "Projects & Gallery",
-    "timeline": "Timeline",
-    "aiMethod": "AI Method",
+    "experience": "Experience",
+    "aiMethod": "Website Build Process",
     "contact": "Contact"
   },
   "hero": {
@@ -33,7 +33,7 @@
   },
   "iterationSummary": {
     "title": "How This Website Was Iterated",
-    "intro": "I treated this personal website as a product: first defining who it's for and what it conveys, then leveraging AI for planning, implementation, interaction design, and continuous refinement.",
+    "intro": "\"Define-Generate-Evaluate-Iterate\" gradual convergence",
     "stage1_title": "Problem Framing",
     "stage1_summary": "Transformed open-ended assignment requirements into clear product goals, target audience, and minimum viable solution.",
     "stage1_bullet1": "Designed browsing paths for recruiters and interviewers",
@@ -128,6 +128,10 @@
     "logic4_title": "Launch MVP first, then continue iterating",
     "logic4_body": "I didn't aim for perfection in one shot. Instead, I completed a runnable version first, then continued optimizing narrative, interaction, navigation, and long-form content structure.",
     "section2_title": "Four-Stage Evolution",
+    "phase1_label": "Phase 1",
+    "phase2_label": "Phase 2",
+    "phase3_label": "Phase 3",
+    "phase4_label": "Phase 4",
     "phase1_title": "Stage 1: Problem Framing",
     "phase1_paragraph": "Initially, I broke down the assignment requirements and transformed them into a clearer product question: who is this website for, what do they need to see most in the shortest time, and what experience best establishes professionalism and trust.",
     "phase1_what_changed": "Defined target users as recruiters and interviewers\nSet overall style as minimal, professional, trustworthy\nUsed Gemini, Trae, and other tools to help produce prompts, tech stack, and site plan",
@@ -244,7 +248,9 @@
     "t13_title": "Shenzhen Hackathon (Douyin) · EV AI Sales Assistant",
     "t13_subtitle": "Product & Full-Stack Dev",
     "t13_desc": "Designed an AI consulting platform for EV purchasing decisions built on Dify, integrating an AI chatbot for smart Q&A and personalized recommendations based on budget, range, and charging conditions.",
-    "t13_tag": "Project"
+    "t13_tag": "Project",
+    "section_education": "Education",
+    "section_work": "Work Experience"
   },
   "gallery": {
     "title": "Gallery",
