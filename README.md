@@ -343,66 +343,11 @@ src/app/[locale]/
 
 **User Input & AI Output**: 移除导航栏主题切换按钮，新增语言切换框（分段控制器设计，左侧"中"、右侧"EN"，当前语言高亮显示），保留Globe图标并置于语言框左侧；为AI助手欢迎语添加打字机特效，"你好！"静态显示，"我是吴邪的 AI 助手。可以通过我了解他。"动态逐字呈现并循环播放（打字→暂停→删除→重新开始）。修改涉及 `Navbar.tsx`（UI重构）、`AIChat.tsx`（打字机动画逻辑）、`zh.json`（欢迎语文案更新）。
 
-**修改文件**:
-| 文件路径 | 变更内容 |
-|---------|---------|
-| `src/app/[locale]/page.tsx` | 移除Timeline、AIMethodology、Contact组件，调整顺序为Hero→AIChat→About→Projects→Gallery |
-| `src/components/layout/Navbar.tsx` | 重构导航结构：添加下拉菜单逻辑（useState控制展开/收起）、桌面端悬停展开、移动端点击展开、ChevronDown图标旋转动画 |
-| `src/messages/zh.json` | 更新nav命名空间：hero→home，调整顺序 |
-| `src/messages/en.json` | 同步更新英文nav命名空间 |
+**修改文件**: `page.tsx`（调整 Section 顺序为 Hero→AIChat→About→Projects→Gallery）、`Navbar.tsx`（重构为下拉菜单结构）、`zh.json`/`en.json`（更新导航文案），创建 timeline/ai-methodology/contact 三个独立页面。
 
-**技术实现细节**:
+**架构决策**: 将履历、AI 方法论、联系方式拆分为独立页面以优化长内容阅读体验，首页保留 5 个核心 Section 控制合理长度，AI 助手移至第 2 位提升交互优先级，符合"先吸引后深入"的 UX 原则。
 
-1. **下拉菜单实现**:
-   - 使用 `useState` 控制 `dropdownOpen` 状态
-   - 桌面端：`onMouseEnter`/`onMouseLeave` 悬停展开
-   - 移动端：点击展开，子菜单折叠显示
-   - 点击外部区域自动关闭（`mousedown` 事件监听）
-   - `ChevronDown` 图标旋转动画（`rotate-180`）
 
-2. **独立页面布局**:
-   - 统一使用 `pt-24 pb-20` 顶部留白（避开固定导航栏）
-   - 添加"返回首页"按钮（`ArrowLeft` 图标 + 链接）
-   - 复用 `SectionHeading` 组件保持视觉一致性
-
-3. **路由处理**:
-   - 首页内锚点：使用 `scrollIntoView({ behavior: 'smooth' })`
-   - 跨页面跳转：使用 `router.push('/${currentLocale}${href}')`
-   - 保持国际化路由正确性（`currentLocale` 变量）
-
-**架构决策理由**:
-
-1. **为什么拆分独立页面？**
-   - 履历内容较长（9个时间节点），独立页面提供更好的阅读体验
-   - AI方法论是元内容（关于网站本身），与主体内容分离更清晰
-   - 联系方式作为独立页面，便于直接分享链接
-
-2. **为什么保留首页5个Section？**
-   - Hero + AI助手：第一屏展示核心价值
-   - 关于我 + 精选项目：第二屏展示专业能力
-   - 作品展示：第三屏展示内容创作
-   - 5个Section控制在合理长度，避免首页过长
-
-3. **为什么AI助手移到第2位？**
-   - AI助手是网站的差异化特色，应该优先展示
-   - 用户进入网站后立即看到AI交互入口，提升参与度
-   - 符合"先吸引，后深入"的用户体验原则
-
-**风险评估与解决**:
-- **SEO影响**：独立页面可能降低首页权重 → 在首页添加内链指向独立页面
-- **用户体验**：页面跳转增加操作成本 → 独立页面添加返回按钮和面包屑导航
-- **国际化路由**：next-intl需要正确处理子页面 → 使用 `useRouter` 和 `usePathname` 确保locale正确
-
-**验收标准**:
-- [x] 首页显示5个Section（Hero、AI助手、关于我、精选项目、作品展示）
-- [x] 导航栏"首页"显示下拉菜单，包含4个子项
-- [x] 点击下拉菜单项平滑滚动到对应Section
-- [x] 履历、AI方法论、联系方式可独立访问
-- [x] 独立页面有返回首页按钮
-- [x] 中英文切换正常
-- [x] 暗色模式正常
-- [x] 移动端导航正常
-- [x] 下拉菜单动画流畅
 
 ---
 
