@@ -186,7 +186,15 @@ export const portfolioKnowledge = {
     availableDate: "随时",
   },
 
-  publications: [],
+  publications: [] as Array<{
+    title: string;
+    status: string;
+    expectedDate: string;
+  }>,
 
-  patents: [],
+  patents: [] as Array<{
+    type: string;
+    name: string;
+    date: string;
+  }>,
 };

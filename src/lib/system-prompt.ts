@@ -50,8 +50,8 @@ Tech Stack: ${k.howThisSiteWasBuilt.techStack.join(", ")}
 Tools Used: ${k.howThisSiteWasBuilt.tools.join(", ")}
 
 ### Publications & Patents
-${k.publications.map((p) => `- Paper: "${p.title}" — ${p.status} (expected ${p.expectedDate})`).join("\n")}
-${k.patents.map((p) => `- ${p.type}: "${p.name}" (${p.date})`).join("\n")}
+${k.publications.length > 0 ? k.publications.map((p) => `- Paper: "${p.title}" — ${p.status} (expected ${p.expectedDate})`).join("\n") : "No publications yet."}
+${k.patents.length > 0 ? k.patents.map((p) => `- ${p.type}: "${p.name}" (${p.date})`).join("\n") : "No patents yet."}
 
 ### Awards
 ${k.awards.join(", ")}
