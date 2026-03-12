@@ -75,7 +75,7 @@
     "subtitle": "基于我的真实背景训练的智能助手，有问必答",
     "assistant_name": "吴邪的 AI 助手",
     "assistant_desc": "基于个人档案与项目经验，为你解答",
-    "welcome": "你好！我是吴邪的 AI 助手，可以通过我了解他",
+    "welcome": "你好！我是吴邪的 AI 助手。可以通过我了解他。",
     "placeholder": "Ask me anything about 吴邪…",
     "thinking": "正在思考...",
     "error_generic": "出了点问题，请稍后再试。",

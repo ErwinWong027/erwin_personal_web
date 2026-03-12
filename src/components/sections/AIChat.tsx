@@ -20,9 +20,14 @@ export function AIChat() {
   const [error, setError] = useState<string | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const [speakingId, setSpeakingId] = useState<string | null>(null);
+  const [displayedText, setDisplayedText] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
+
+  const fullText = t("welcome");
+  const staticPart = "你好！";
+  const typeWriterPart = fullText.replace(staticPart, "");
 
   const suggestedQuestions = [
     t("q1"),
@@ -49,6 +54,49 @@ export function AIChat() {
       window.speechSynthesis.cancel();
     };
   }, []);
+
+  useEffect(() => {
+    let index = 0;
+    let isDeleting = false;
+    let isPaused = false;
+    setDisplayedText("");
+    
+    const type = () => {
+      if (isPaused) {
+        timer = setTimeout(() => {
+          isPaused = false;
+          isDeleting = true;
+          type();
+        }, 3000);
+        return;
+      }
+
+      if (!isDeleting) {
+        if (index < typeWriterPart.length) {
+          setDisplayedText(typeWriterPart.substring(0, index + 1));
+          index++;
+          timer = setTimeout(type, 100);
+        } else {
+          isPaused = true;
+          timer = setTimeout(type, 100);
+        }
+      } else {
+        if (index > 0) {
+          setDisplayedText(typeWriterPart.substring(0, index - 1));
+          index--;
+          timer = setTimeout(type, 50);
+        } else {
+          isDeleting = false;
+          timer = setTimeout(type, 500);
+        }
+      }
+    };
+
+    let timer: NodeJS.Timeout;
+    type();
+
+    return () => clearTimeout(timer);
+  }, [typeWriterPart]);
 
   const sendMessage = async (text: string) => {
     if (!text.trim() || loading) return;
@@ -167,8 +215,10 @@ export function AIChat() {
                     <Bot className="h-10 w-10 text-primary-500/80 dark:text-primary-400/80" />
                   </div>
                   <h2 className="max-w-[479px] text-2xl font-semibold leading-tight tracking-tight text-slate-900 dark:text-white sm:text-3xl">
-                    {t("welcome")}
-                  </h2>
+                      <span>{staticPart}</span>
+                      <span>{displayedText}</span>
+                      <span className={`border-r-2 border-primary-500 ${displayedText.length === typeWriterPart.length ? 'animate-pulse' : 'animate-bounce'}`}></span>
+                    </h2>
                 </div>
 
                 <div className="mb-12 w-full max-w-[1100px]">

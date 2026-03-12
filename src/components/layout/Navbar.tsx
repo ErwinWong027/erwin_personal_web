@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Globe, Menu, X, ChevronDown } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 
@@ -146,6 +146,13 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
+          <button
+            onClick={switchLocale}
+            className="rounded-lg p-2 text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-100"
+            aria-label="Switch language"
+          >
+            <Globe className="h-4 w-4" />
+          </button>
           <div className="flex items-center rounded-lg border border-slate-200 bg-white p-1 dark:border-slate-700 dark:bg-slate-800">
             <button
               onClick={() => currentLocale !== "zh" && switchLocale()}
