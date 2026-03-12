@@ -341,11 +341,6 @@ src/app/[locale]/
 
 **User Input**: 移除导航栏主题切换按钮，新增语言切换框（分段控制器设计），为AI助手欢迎语添加打字机特效。
 
-**AI Output**:
-- `Navbar.tsx`: 移除主题切换按钮，新增语言切换框（左侧"中"、右侧"EN"，当前语言高亮显示），保留Globe图标
-- `AIChat.tsx`: 添加打字机动画逻辑，"你好！"静态显示，"我是吴邪的 AI 助手。可以通过我了解他。"动态逐字呈现并循环播放
-- `zh.json`: 更新欢迎语文案
-
 **架构决策**: 将履历、AI 方法论、联系方式拆分为独立页面以优化长内容阅读体验，首页保留 5 个核心 Section 控制合理长度，AI 助手移至第 2 位提升交互优先级。
 
 ---
@@ -354,27 +349,100 @@ src/app/[locale]/
 
 **User Input**: 精选项目和作品展示合并，标题为"项目作品展示"，副标题"从算法设计到工程落地"。作品放在项目左边，合并为一个容器，一行显示2个项目作品卡片。
 
-**AI Output**:
-- **新建文件**: `src/components/sections/ProjectGallery.tsx` — 合并组件，作品封面（左）+ 项目信息（右）的横向布局
-- **删除文件**: `Projects.tsx`, `Gallery.tsx` — 旧组件已移除
-- **修改文件**:
-  - `page.tsx`: 替换 Projects 和 Gallery 为 ProjectGallery
-  - `Navbar.tsx`: 更新导航结构，合并为单一导航项
-  - `zh.json`/`en.json`: 新增 `projectGallery` 命名空间
+---
 
-**布局设计**:
-- 作品封面：固定宽度 `w-28`，渐变背景 + 播放按钮 + 标签，删除作品标题
-- 项目信息：`flex-1` 自适应，包含标题、角色、日期、描述、标签
-- 响应式：桌面端一行2个，移动端一行1个
-- 整体缩小：字体 `text-xs`/`text-sm`，间距 `p-4`，标签 `px-2 py-0.5`
+### v1.5 — 三协同升级：首页、AI方法论、Before/After对比 (Round 15)
 
-**配对关系**:
-| 作品（左） | 项目（右） |
-|-----------|-----------|
-| MATLAB 地震信号处理实战 | 微地震事件检测与分析软件系统 |
-| BIM 建模从零到一 | 智慧校园综合楼 BIM 建模项目 |
-| AI 辅助建站全过程 | 字节跑动 · 工程数字化实习 |
-| 工程数字化经验分享 | 东凤汽车 · 施工管理实习 |
+**User Input**: 完成三个协同升级，将网站从"变更日志"风格转化为"产品化迭代案例研究"风格。
+
+**升级内容**:
+
+#### A. 首页4阶段迭代摘要
+
+**新增组件**: `src/components/sections/IterationSummary.tsx`
+
+**内容结构**:
+- **标题**: "这个网站是如何迭代出来的"
+- **简介**: 产品化构建理念
+- **4个阶段卡片**（2x2网格布局）:
+  1. **问题定义**: Summary + 3个Bullets
+  2. **数据驱动建站**: Summary + 3个Bullets
+  3. **AI原生交互**: Summary + 3个Bullets
+  4. **产品化打磨**: Summary + 3个Bullets
+- **底部Takeaway**: "这不是一次性生成的页面，而是一个通过'定义—生成—评估—迭代'逐步收敛出来的产品。"
+- **CTA按钮**: "查看完整构建过程" → 跳转AI方法论页面
+
+#### B. AI方法论页面完整重构
+
+**重构组件**: `src/components/sections/AIMethodology.tsx`
+
+**新增内容板块**:
+1. **Metrics Strip**: 4个关键指标
+   - 多轮人机协作迭代
+   - 双语信息架构
+   - 从规划到部署的AI辅助流程
+   - 基于Qwen-Plus的作品集助手
+
+2. **Section 1 - 核心构建逻辑**: 4个Logic卡片
+   - 先定义受众，再定义页面
+   - 先做结构，再生成实现
+   - 先用真实资料约束内容
+   - 先上线MVP，再继续迭代
+
+3. **Section 2 - 四阶段演进**: 4个Phase详情
+   - **阶段一：问题定义** - Paragraph + What Changed + Why It Mattered + Outputs
+   - **阶段二：数据驱动建站** - 同上结构
+   - **阶段三：AI原生交互** - 同上结构
+   - **阶段四：产品化打磨** - 同上结构
+
+4. **Section 3 - 工具链与协作流程**: 5个Workflow描述
+   - Gemini、Trae IDE + GLM 5/Qwen、Cursor + Claude、Next.js + Tailwind CSS、Qwen-Plus API
+
+5. **Section 4 - 版本前后对比**: 3组Compare卡片
+   - 从通用结构到面向招聘方的个人品牌门户
+   - 从静态展示到AI交互体验
+   - 从长单页到混合式信息架构
+   - 占位符设计，后续可替换真实截图
+
+6. **Section 5 - 最后的总结**: 核心理念总结
+   - "这个网站不是通过一次性生成得到的，而是在真实目标约束下，通过多轮'定义—生成—评估—优化'逐步收敛出来的。"
+
+#### C. Before/After对比组件
+
+**新增组件**: `src/components/sections/BeforeAfterComparison.tsx`
+
+**设计特点**:
+- 左右对比布局（移动端上下堆叠）
+- 精美占位符设计（渐变背景 + 图标 + 文字说明）
+- 显示"早期版本（待添加截图）" / "当前版本（待添加截图）"
+- 虚线边框提示可替换
+- 包含版本标签和简要说明
+
+**文件修改清单**:
+
+**新建文件**:
+| 文件路径 | 用途 |
+|---------|------|
+| `src/components/sections/IterationSummary.tsx` | 首页演进历程 |
+| `src/components/sections/BeforeAfterComparison.tsx` | Before/After对比 |
+
+**修改文件**:
+| 文件路径 | 修改内容 |
+|---------|---------|
+| `src/app/[locale]/page.tsx` | 添加IterationSummary到首页 |
+| `src/components/sections/AIMethodology.tsx` | 完整重构，支持新结构 |
+| `src/messages/zh.json` | 添加iterationSummary和aiMethod新翻译（共90+行） |
+| `src/messages/en.json` | 同步英文翻译（共90+行） |
+
+**技术亮点**:
+- **组件复用**: 使用现有的AnimateOnScroll、SectionHeading组件
+- **类型安全**: TypeScript类型定义完善
+- **响应式设计**: 移动端优先，自适应布局
+- **暗黑模式**: 所有新增组件支持暗黑模式
+- **双语支持**: 中英文翻译完整对应
+
+**核心价值**:
+网站现在完整呈现了"通过AI迭代构建的产品化个人品牌门户"的完整故事，从首页的简洁摘要到AI方法论页面的详细案例研究，内容植根于真实开发史，体现了产品思维在个人品牌建设中的应用。
 
 ---
 
@@ -382,17 +450,17 @@ src/app/[locale]/
 
 | Metric | Value |
 |---|---|
-| Total conversation rounds | 14 |
-| Total source files | 23+ |
-| Sections built | 7 |
+| Total conversation rounds | 15 |
+| Total source files | 25+ |
+| Sections built | 8 |
 | Languages supported | 2 (中文 / English) |
-| i18n keys | 130+ |
+| i18n keys | 220+ |
 | Hand-written lines of code | 0 |
 | Build tool | Cursor + Claude |
 | AI chat backend | Qwen-Plus (DashScope) |
 | First successful build | Round 3 (v0.3) |
 | Time from empty directory to running site | 1 conversation round |
-| Latest iteration | v1.4 (Project Gallery merge) |
+| Latest iteration | v1.5 (三协同升级) |
 
 ## Built with AI
 

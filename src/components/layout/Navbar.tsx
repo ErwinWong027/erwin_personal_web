@@ -8,6 +8,7 @@ import { useState, useEffect, useRef } from "react";
 const homeChildren = [
   { key: "aiChat", href: "#ai-chat" },
   { key: "about", href: "#about" },
+  { key: "iterationSummary", href: "#iteration-summary" },
   { key: "projectGallery", href: "#project-gallery" },
 ] as const;
 

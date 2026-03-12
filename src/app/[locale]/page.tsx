@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { AIChat } from "@/components/sections/AIChat";
 import { About } from "@/components/sections/About";
+import { IterationSummary } from "@/components/sections/IterationSummary";
 import { ProjectGallery } from "@/components/sections/ProjectGallery";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero />
       <AIChat />
       <About />
+      <IterationSummary />
       <ProjectGallery />
     </>
   );
