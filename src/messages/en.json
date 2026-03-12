@@ -216,6 +216,7 @@
   "projectGallery": {
     "title": "Projects & Gallery",
     "subtitle": "From algorithm design to engineering delivery",
+    "honors_title": "Honors & Awards",
     "work1_title": "MATLAB Seismic Signal Processing",
     "work1_tag": "Tutorial",
     "work2_title": "BIM Modeling From Scratch",

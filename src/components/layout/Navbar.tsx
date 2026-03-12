@@ -9,8 +9,7 @@ const homeChildren = [
   { key: "aiChat", href: "#ai-chat" },
   { key: "about", href: "#about" },
   { key: "iterationSummary", href: "#iteration-summary" },
-  { key: "projectGallery", href: "#projects" },
-  { key: "honorsGallery", href: "#honors" },
+  { key: "projectGallery", href: "#project-gallery" },
 ] as const;
 
 const standalonePages = [
