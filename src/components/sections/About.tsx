@@ -61,9 +61,11 @@ export function About() {
           {/* Description */}
           <AnimateOnScroll className="lg:col-span-3">
             <div className="flex items-start gap-6">
-              <div className="hidden h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-100 to-primary-200 text-2xl font-bold text-primary-700 sm:flex dark:from-primary-900/50 dark:to-primary-800/50 dark:text-primary-300">
-                E
-              </div>
+              <img
+                src="/images/avatar.png"
+                alt="Erwin Avatar"
+                className="hidden h-20 w-20 shrink-0 rounded-2xl object-cover shadow-md sm:flex"
+              />
               <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
                 {t("description")}
               </p>

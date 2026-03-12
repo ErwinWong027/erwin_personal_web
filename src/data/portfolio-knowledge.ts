@@ -185,4 +185,8 @@ export const portfolioKnowledge = {
     targetCity: "深圳 / 杭州 / 上海",
     availableDate: "随时",
   },
+
+  publications: [],
+
+  patents: [],
 };

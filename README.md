@@ -444,14 +444,30 @@ src/app/[locale]/
 **核心价值**:
 网站现在完整呈现了"通过AI迭代构建的产品化个人品牌门户"的完整故事，从首页的简洁摘要到AI方法论页面的详细案例研究，内容植根于真实开发史，体现了产品思维在个人品牌建设中的应用。
 
+
 ---
+
+### v1.6 — 项目与奖项分离展示 (Round 16)
+
+**User Input**: 奖项和上面的项目产品展示分开吧，写个小标题：荣誉奖项。
+
+**升级内容**:
+
+#### 项目作品展示板块优化
+
+**修改组件**: `src/components/sections/ProjectGallery.tsx`
+
+**结构优化**:
+- 将原有的15个项目卡片分为两部分：
+  1. **项目作品展示**（前4个）：保留原有的标题和副标题
+  2. **荣誉奖项**（后11个）：新增独立小标题"荣誉奖项"
 
 ### v1.7 — 内容重写：mockProfile → realProfile (Round 17)
 
 **User Input**: 阅读 readme 和前端项目，根据 `realProfile.json` 重写所有内容，荣誉奖项保持不变。
 
 **背景**:
-网站原先使用虚构人物"吴邪"（浙大地球物理工程师）作为内容原型（`mockProfile.json`），现全面替换为真实主人公王子涵（Erwin）——AI 产品经理，具有 EDHEC 商学院、字节跳动、求职方舟等真实背景。
+网站原先使用虚构人物"吴邪"（盗墓笔记虚拟人物，浙大地球物理工程师）作为内容原型（`mockProfile.json`），现全面替换为真实主人公王子涵（Erwin）——AI 产品经理，具有 EDHEC 商学院、字节跳动、求职方舟等真实背景。
 
 **修改范围**:
 
@@ -479,42 +495,36 @@ src/app/[locale]/
 
 ---
 
-### v1.6 — 项目与奖项分离展示 (Round 16)
+### v1.8 — AI Chat 流式输出与 UI 精简 (Round 18)
 
-**User Input**: 奖项和上面的项目产品展示分开吧，写个小标题：荣誉奖项。
+**User Input**: 
+1. AI 回答采用流式输出
+2. 对话中的用户和 AI 头像去掉
 
-**升级内容**:
+**问题排查与修复**:
+- 发现 AI Chat 返回 "Internal server error"
+- 根因：`portfolio-knowledge.ts` 缺少 `publications` 和 `patents` 字段，但 `system-prompt.ts` 尝试调用 `.map()` 导致 `TypeError`
+- 修复：在 `portfolio-knowledge.ts` 中添加空数组 `publications: []` 和 `patents: []`
 
-#### 项目作品展示板块优化
+**流式输出实现**:
 
-**修改组件**: `src/components/sections/ProjectGallery.tsx`
+**后端修改** (`src/app/api/chat/route.ts`):
+- 添加 `stream: true` 参数调用 Qwen API
+- 将 SSE 流解析并转换为纯文本流返回
+- 使用 `ReadableStream` 逐块读取 AI 回复内容
 
-**结构优化**:
-- 将原有的15个项目卡片分为两部分：
-  1. **项目作品展示**（前4个）：保留原有的标题和副标题
-  2. **荣誉奖项**（后11个）：新增独立小标题"荣誉奖项"
+**前端修改** (`src/components/sections/AIChat.tsx`):
+- 先创建空的 assistant 消息占位
+- 使用 `res.body?.getReader()` 读取流
+- 实时 `setMessages` 更新内容，实现打字机效果
 
-**视觉设计**:
-- 两部分之间添加16px间距
-- 荣誉奖项标题居中显示，字号2xl，加粗
-- 保持相同的卡片样式和交互效果
-
-**文件修改清单**:
-
-**修改文件**:
-| 文件路径 | 修改内容 |
-|---------|---------|
-| `src/components/sections/ProjectGallery.tsx` | 分离项目与奖项，添加荣誉奖项标题 |
-| `src/messages/zh.json` | 添加 `honors_title` 翻译 |
-| `src/messages/en.json` | 添加 `honors_title` 翻译 |
-
-**验证结果**:
-- ✅ 构建成功
-- ✅ 双语支持完整
-- ✅ 响应式布局正常
+**UI 精简**:
+- 移除消息气泡左侧的用户头像（`User` 图标）
+- 移除 AI 助手的机器人头像（`Bot` 图标）
+- 对话界面更简洁，聚焦内容本身
 
 **核心价值**:
-项目作品与荣誉奖项分离展示，信息架构更清晰，便于访客快速定位不同类型的内容。
+AI 回复从"等待整段返回"变为"实时逐字显示"，用户体验更流畅自然；同时精简 UI 元素，让对话内容成为视觉焦点。
 
 ---
 

@@ -129,15 +129,34 @@ export function AIChat() {
         throw new Error(body.error || `Request failed (${res.status})`);
       }
 
-      const data = await res.json();
-
+      // Create assistant message placeholder for streaming
+      const assistantMsgId = (Date.now() + 1).toString();
       const assistantMsg: Message = {
-        id: (Date.now() + 1).toString(),
+        id: assistantMsgId,
         role: "assistant",
-        content: data.reply,
+        content: "",
       };
-
       setMessages((prev) => [...prev, assistantMsg]);
+
+      // Read stream
+      const reader = res.body?.getReader();
+      const decoder = new TextDecoder();
+
+      if (reader) {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+
+          const chunk = decoder.decode(value, { stream: true });
+          setMessages((prev) =>
+            prev.map((msg) =>
+              msg.id === assistantMsgId
+                ? { ...msg, content: msg.content + chunk }
+                : msg
+            )
+          );
+        }
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : t("error_generic"));
     } finally {
@@ -210,11 +229,15 @@ export function AIChat() {
           <div className="mx-auto max-w-[1100px]">
             {showSuggestions ? (
               <div className="flex flex-col items-center pt-20">
-                <div className="mb-16 flex flex-row items-start justify-center gap-2">
-                  <div className="flex h-[82px] w-[82px] shrink-0 items-center justify-center rounded-3xl bg-slate-50 shadow-inner ring-1 ring-slate-100 dark:bg-slate-900 dark:ring-slate-800">
-                    <Bot className="h-10 w-10 text-primary-500/80 dark:text-primary-400/80" />
-                  </div>
-                  <h2 className="max-w-[479px] text-2xl font-semibold leading-tight tracking-tight text-slate-900 dark:text-white sm:text-3xl">
+                  <div className="mb-16 flex flex-row items-start justify-center gap-2">
+                    <div className="flex h-[82px] w-[82px] shrink-0 items-center justify-center overflow-hidden rounded-3xl bg-slate-50 shadow-inner ring-1 ring-slate-100 dark:bg-slate-900 dark:ring-slate-800">
+                      <img
+                        src="/images/ai助手.png"
+                        alt="AI Assistant"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                    <h2 className="max-w-[479px] text-2xl font-semibold leading-tight tracking-tight text-slate-900 dark:text-white sm:text-3xl">
                       <span>{staticPart}</span>
                       <span>{displayedText}</span>
                       <span className={`border-r-2 border-primary-500 ${displayedText.length === typeWriterPart.length ? 'animate-pulse' : 'animate-bounce'}`}></span>
@@ -274,8 +297,12 @@ export function AIChat() {
             ) : (
               <div className="overflow-hidden rounded-3xl border border-slate-200/80 bg-white shadow-2xl dark:border-slate-800/80 dark:bg-slate-900">
                 <div className="flex items-center gap-4 border-b border-slate-100 px-6 py-5 dark:border-slate-800">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-50 dark:bg-primary-950/30">
-                    <Bot className="h-6 w-6 text-primary-600 dark:text-primary-400" />
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-primary-50 dark:bg-primary-950/30">
+                    <img
+                      src="/images/ai助手.png"
+                      alt="AI Assistant"
+                      className="h-full w-full object-cover"
+                    />
                   </div>
                   <div>
                     <p className="text-lg font-bold text-slate-900 dark:text-white">
@@ -300,20 +327,6 @@ export function AIChat() {
                         transition={{ duration: 0.3 }}
                         className={`mb-6 flex gap-4 group ${msg.role === "user" ? "flex-row-reverse" : ""}`}
                       >
-                        <div
-                          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${
-                            msg.role === "user"
-                              ? "bg-primary-600 text-white"
-                              : "bg-slate-100 dark:bg-slate-800"
-                          }`}
-                        >
-                          {msg.role === "user" ? (
-                            <User className="h-5 w-5" />
-                          ) : (
-                            <Bot className="h-5 w-5 text-primary-600 dark:text-primary-400" />
-                          )}
-                        </div>
-
                         <div className="flex max-w-[80%] flex-col">
                           <div
                             className={`rounded-2xl px-5 py-4 text-base leading-relaxed ${
@@ -375,9 +388,6 @@ export function AIChat() {
                       animate={{ opacity: 1, y: 0 }}
                       className="mb-6 flex gap-4"
                     >
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800">
-                        <Bot className="h-5 w-5 text-primary-600 dark:text-primary-400" />
-                      </div>
                       <div className="flex items-center gap-2 rounded-2xl rounded-tl-md bg-slate-100 px-5 py-4 dark:bg-slate-800">
                         <Loader2 className="h-5 w-5 animate-spin text-primary-500" />
                         <span className="text-base text-slate-500 dark:text-slate-400">

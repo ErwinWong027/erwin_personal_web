@@ -14,7 +14,7 @@ const notoSansSC = Noto_Sans_SC({
 });
 
 export const metadata: Metadata = {
-  title: "吴邪 | Wu Xie — Geophysical Engineer",
+  title: "王子涵 | Wang Zihan — Geophysical Engineer",
   description:
     "地球物理工程师，浙江大学地质工程硕士。用数据与算法，让地下世界不再沉默。",
 };
