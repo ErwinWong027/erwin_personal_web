@@ -333,7 +333,6 @@ export function ProjectGallery() {
   ] as const;
 
   const projectItems = items.slice(0, 4);
-  const honorItems = items.slice(4);
 
   return (
     <section id="project-gallery" className="bg-slate-100/50 py-24 dark:bg-slate-900/50">
@@ -436,104 +435,6 @@ export function ProjectGallery() {
           ))}
         </div>
 
-        <div className="mt-16">
-          <h3 className="mb-8 text-center text-2xl font-bold">{t("honors_title")}</h3>
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 items-stretch">
-            {honorItems.map((item, i) => (
-              <AnimateOnScroll key={i} delay={i * 0.1}>
-                <div
-                  onClick={() =>
-                    handleCardClick(t(item.projectTitleKey), item.workUrl)
-                  }
-                  className="group flex h-full cursor-pointer overflow-hidden rounded-2xl border border-slate-200/80 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-slate-800/80 dark:bg-slate-900"
-                >
-                  <div className="relative w-28 flex-shrink-0 overflow-hidden">
-                    {(() => {
-                      const displayImage = getImageUrl(item.workUrl, item.imageUrl);
-                      if (displayImage) {
-                        return (
-                          <>
-                            <img
-                              src={displayImage}
-                              alt={t(item.projectTitleKey)}
-                              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                            />
-                            <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 backdrop-blur-md shadow-lg">
-                                <ImageIcon className="h-5 w-5 text-primary-600" />
-                              </div>
-                            </div>
-                          </>
-                        );
-                      } else {
-                        return (
-                          <>
-                            <div
-                              className={`absolute inset-0 bg-gradient-to-br ${galleryGradients[i + 4]} transition-transform duration-500 group-hover:scale-105`}
-                            />
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/25 backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:bg-white/35">
-                                {isPdfFile(item.workUrl) ? (
-                                  <FileText className="h-4 w-4 fill-white text-white" />
-                                ) : (
-                                  <Play className="h-4 w-4 fill-white text-white" />
-                                )}
-                              </div>
-                            </div>
-                          </>
-                        );
-                      }
-                    })()}
-
-                    <div className="absolute top-2 left-2">
-                      <span className="rounded-full bg-black/30 px-2 py-0.5 text-[9px] font-medium text-white backdrop-blur-md">
-                        {t(item.workTagKey)}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-1 flex-col justify-between p-4">
-                    <div>
-                      <div
-                        className={`mb-2 h-0.5 w-8 rounded-full bg-gradient-to-r ${gradients[i + 4]}`}
-                      />
-
-                      <h3 className="text-sm font-semibold leading-snug text-slate-800 dark:text-slate-100">
-                        {t(item.projectTitleKey)}
-                      </h3>
-
-                      <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
-                        {t(item.projectDescKey)}
-                      </p>
-
-                      <div className="mt-3 flex flex-wrap gap-1.5">
-                        {projectTags[i + 4].map((tag, j) => (
-                          <span
-                            key={tag}
-                            className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${tagColors[j % tagColors.length]}`}
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="mt-3 flex items-center justify-between border-t border-slate-100 pt-3 dark:border-slate-800">
-                      <div className="flex items-center gap-1.5 text-[10px] text-slate-500 dark:text-slate-400">
-                        <User className="h-2.5 w-2.5" />
-                        {t(item.projectRoleKey)}
-                      </div>
-                      <div className="flex items-center gap-1 text-[10px] text-slate-500 dark:text-slate-400">
-                        <Calendar className="h-2.5 w-2.5" />
-                        {t(item.projectDateKey)}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </AnimateOnScroll>
-            ))}
-          </div>
-        </div>
       </div>
 
       <MacOSModal

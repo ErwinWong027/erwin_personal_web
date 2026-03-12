@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
+import { Honors } from "./Honors";
 
 const educationEntries = [
   { id: "edu-edhec",    titleKey: "t5_title",  subtitleKey: "t5_subtitle",  descKey: "t5_desc",  date: "2022.07" },
@@ -82,6 +83,8 @@ export function Experience() {
             </div>
           </div>
         </AnimateOnScroll>
+
+        <Honors />
       </div>
     </section>
   );
