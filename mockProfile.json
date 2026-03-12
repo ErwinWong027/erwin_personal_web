@@ -1,0 +1,172 @@
+{
+  "basic": {
+    "full_name": "吴邪",
+    "english_name": "Wu Xie",
+    "email": "wuxie@zju.edu.cn",
+    "phone": "13800001234",
+    "gender": "M",
+    "birthday": "2003-07-15",
+    "ethnicity": "汉族",
+    "wechat": "wuxie_zju",
+    "qq": "123456789",
+    "id_type": "IDCard",
+    "id_number": "330102200307151234",
+    "political_status": "League",
+    "marital_status": "Single",
+    "registered_residence": "浙江省杭州市西湖区",
+    "native_place": "浙江杭州",
+    "current_city": "杭州市",
+    "health_status": "良好",
+    "speciality": "BIM建模、MATLAB编程",
+    "hobbies": "工程制图、地球物理探索、编程",
+    "work_years": 0,
+    "emergency_contact": "吴三省",
+    "emergency_contact_phone": "13900001234",
+    "emergency_contact_relation": "父亲",
+    "self_description": "本人具有建筑工程与地质工程（勘查地球物理）的复合背景，具备扎实的工程基础与地震数据分析能力，熟练使用MATLAB等工具进行工程与科研建模，关注地下工程、能源勘探与工程数字化方向，具备良好的学习能力与工程实践素养。"
+  },
+  "educations": [
+    {
+      "school": "浙江大学",
+      "major": "地质工程（勘查地球物理）",
+      "degree": "硕士",
+      "education_level": "研究生",
+      "start_date": "2025-09",
+      "end_date": "2028-07",
+      "faculty": "地球科学学院",
+      "study_form": "全日制",
+      "school_type": "985/211/双一流",
+      "research_direction": "微地震信号处理与弱事件检测",
+      "advisor_name": "张起灵",
+      "grade": "GPA 3.89/5",
+      "class_rank": "专业前10%",
+      "city": "杭州"
+    },
+    {
+      "school": "浙江大学",
+      "major": "建筑工程",
+      "degree": "本科",
+      "education_level": "本科",
+      "start_date": "2021-09",
+      "end_date": "2025-07",
+      "faculty": "建筑工程学院",
+      "study_form": "全日制",
+      "school_type": "985/211/双一流",
+      "grade": "专业前5%",
+      "city": "杭州"
+    }
+  ],
+  "experiences": [
+    {
+      "company": "字节跑动科技有限公司",
+      "department": "工程数字化部",
+      "position": "工程数据与BIM技术实习生",
+      "industry": "互联网/科技",
+      "location": "北京",
+      "start_date": "2024-06",
+      "end_date": "2024-09",
+      "responsibilities": "① 在园区及办公楼建设项目中，负责建筑与结构BIM模型的搭建、校核与信息维护，依据施工图纸与现场反馈对模型进行多轮修正，确保工程数据的一致性与可用性。\n② 对工程进度、构件信息及变更记录进行系统化整理，将分散的工程数据转化为可查询、可统计的数字化资料，支持项目管理人员进行进度与成本分析。\n③ 参与工程数字化管理流程的梳理与优化，协助建立工程信息标准化模板，为后续项目复用和规模化管理提供基础数据支持。",
+      "leave_reason": "实习结束"
+    },
+    {
+      "company": "东凤汽车集团有限公司",
+      "department": "基建管理部",
+      "position": "建筑施工管理实习生",
+      "industry": "制造/汽车",
+      "location": "武汉",
+      "start_date": "2023-07",
+      "end_date": "2023-10",
+      "responsibilities": "① 在工业厂房及配套设施建设项目中，跟随施工管理团队开展现场巡查，记录施工进度与关键工序执行情况，熟悉大型工业建筑的施工组织与管理流程。\n② 参与施工质量与安全检查，协助整理隐患排查与整改记录，对施工现场的规范执行、安全管理及多工种协作有直观理解。\n③ 负责施工相关资料的整理与归档，包括施工日志、进度报表与技术文件，强化了对工程管理中\"现场—资料—管理决策\"之间关系的认识。",
+      "leave_reason": "实习结束"
+    }
+  ],
+  "projects": [
+    {
+      "project_name": "微地震事件检测与分析软件系统",
+      "position": "算法设计与系统实现负责人",
+      "start_date": "2026-03",
+      "end_date": "2027-12",
+      "team_size": 3,
+      "description": "针对油气地震勘探与地下工程监测中微地震信号信噪比低、人工拾取效率低的问题，基于MATLAB实现微地震信号预处理、能量判据与多特征联合判别算法，完成事件自动检测与初步分类流程。将算法流程封装为可复用的软件模块，以第一作者身份取得软件著作权。",
+      "responsibilities": "算法设计、系统开发、软件著作权申请",
+      "outcomes": "软件著作权1项"
+    },
+    {
+      "project_name": "智慧校园综合楼建筑设计与BIM建模项目",
+      "position": "项目负责人",
+      "start_date": "2023-03",
+      "end_date": "2024-01",
+      "team_size": 5,
+      "description": "以实际校园综合楼为设计对象，独立完成主要结构构件布置与关键节点设计，基于BIM技术建立完整建筑信息模型，在校级建筑设计评审中获得一等奖。",
+      "responsibilities": "方案设计、结构分析、BIM建模",
+      "outcomes": "校级建筑设计竞赛一等奖"
+    }
+  ],
+  "languages": [
+    {
+      "language": "英语",
+      "proficiency": "CET-6",
+      "score": "520",
+      "certificate_name": "大学英语六级",
+      "reading_writing": "良好",
+      "listening_speaking": "良好"
+    }
+  ],
+  "campus_experiences": [
+    {
+      "activity_name": "建筑工程学院学术交流协会",
+      "start_date": "2022-09",
+      "end_date": "2024-06",
+      "activity_type": "学生社团",
+      "award": "优秀学生干部",
+      "description": "参与组织工程技术讲座与学术交流活动，协助跨学院工程与地学方向交流"
+    }
+  ],
+  "competitions": [
+    {
+      "activity_name": "浙江大学建筑设计竞赛",
+      "award_name": "一等奖",
+      "award_date": "2024-05",
+      "award_level": "校级",
+      "issuer": "浙江大学建筑工程学院"
+    }
+  ],
+  "publications_patents": [
+    {
+      "paper_title": "微地震事件识别与弱信号检测方法研究",
+      "publication_date": "2027-06",
+      "journal": "在研",
+      "patent_name": "微地震事件检测与分析软件",
+      "patent_type": "软件著作权",
+      "patent_date": "2027-12"
+    }
+  ],
+  "family_members": [
+    {
+      "name": "吴三省",
+      "relation": "父亲",
+      "age": 52,
+      "employer": "杭州市建筑设计研究院",
+      "position": "高级工程师",
+      "contact": "13900001234",
+      "political_status": "群众"
+    },
+    {
+      "name": "陈文锦",
+      "relation": "母亲",
+      "age": 50,
+      "employer": "浙江省地质调查院",
+      "position": "研究员",
+      "contact": "13900005678",
+      "political_status": "党员"
+    }
+  ],
+  "job_intentions": [
+    {
+      "desired_position": "地球物理工程师 / 工程数据分析岗",
+      "expected_city": "杭州 / 北京",
+      "expected_salary": "面议",
+      "available_date": "2028-07"
+    }
+  ]
+}
