@@ -282,7 +282,7 @@ This website was built entirely through human-AI conversation. Below is the comp
   - `q1`: "请介绍一下吴邪"
   - `q2`: "他参与过哪些项目？"
   - `q3`: "他最擅长什么？"
-  - `q4`: "他的求职意向是什么？"
+  - `q4`: "这个网站是如何做的？"
   - `disclaimer`: "下滑查看详细介绍"
 - **问题数量**：从 5 个减少到 4 个，移除了"这个网站是怎么搭建的？"
 - **移除功能**：删除了附件上传相关代码和"状态：未登录"显示
