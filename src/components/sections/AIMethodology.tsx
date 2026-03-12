@@ -10,7 +10,6 @@ import {
   Sparkles,
 } from "lucide-react";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const tools = [
   { name: "Cursor", desc: "AI IDE" },
@@ -66,8 +65,6 @@ export function AIMethodology() {
   return (
     <section id="ai-method" className="py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <SectionHeading title={t("title")} subtitle={t("subtitle")} />
-
         <AnimateOnScroll>
           <p className="mx-auto mb-16 max-w-3xl text-center text-lg leading-relaxed text-slate-600 dark:text-slate-300">
             {t("intro")}
