@@ -14,6 +14,22 @@
   --color-primary-950: #1e1b4b;
 
   --font-sans: "Inter", "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
+
+  /* Timeline card gradient colors */
+  --color-pink-200: #fbcfe8;
+  --color-pink-300: #f9a8d4;
+  --color-purple-200: #e9d5ff;
+  --color-purple-300: #d8b4fe;
+  --color-blue-200: #bfdbfe;
+  --color-blue-300: #93c5fd;
+  --color-yellow-200: #fef08a;
+  --color-yellow-300: #fde047;
+  --color-green-200: #bbf7d0;
+  --color-green-300: #86efac;
+  --color-orange-200: #fed7aa;
+  --color-orange-300: #fdba74;
+  --color-cyan-200: #a5f3fc;
+  --color-cyan-300: #67e8f9;
 }
 
 html {

@@ -32,7 +32,7 @@
     "skills_title": "核心技能"
   },
   "iterationSummary": {
-    "title": "这个网站是如何迭代出来的",
+    "title": "迭代策略摘要",
     "intro": "\"定义—生成—评估—迭代\"逐步收敛",
     "stage1_title": "问题定义",
     "stage1_summary": "先把开放式作业要求，转成清晰的产品目标、目标受众和最小可行方案。",
