@@ -1,8 +1,12 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Image as ImageIcon, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
+
+const beforeImages = ["/images/Before1.png", "/images/Before2.png", "/images/Before3.png"];
+const afterImages = ["/images/After1.png", "/images/After2.png", "/images/After3.png"];
 
 export function BeforeAfterComparison() {
   const t = useTranslations("aiMethod");
@@ -10,21 +14,18 @@ export function BeforeAfterComparison() {
   const comparisons = [
     {
       titleKey: "compare1_title" as const,
-      beforeKey: "compare1_before" as const,
-      afterKey: "compare1_after" as const,
       descKey: "compare1_caption" as const,
+      index: 0,
     },
     {
       titleKey: "compare2_title" as const,
-      beforeKey: "compare2_before" as const,
-      afterKey: "compare2_after" as const,
       descKey: "compare2_caption" as const,
+      index: 1,
     },
     {
       titleKey: "compare3_title" as const,
-      beforeKey: "compare3_before" as const,
-      afterKey: "compare3_after" as const,
       descKey: "compare3_caption" as const,
+      index: 2,
     },
   ];
 
@@ -36,21 +37,31 @@ export function BeforeAfterComparison() {
           <div key={comparison.titleKey} className="rounded-2xl bg-slate-50 p-6 dark:bg-slate-900/50">
             <h4 className="mb-6 text-center text-lg font-semibold">{t(comparison.titleKey)}</h4>
             <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-xl border-2 border-dashed border-slate-300 bg-white p-8 text-center dark:border-slate-700 dark:bg-slate-800">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-slate-100 mx-auto dark:bg-slate-700">
-                  <ImageIcon className="h-8 w-8 text-slate-400" />
+              <div className="overflow-hidden rounded-xl border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-800">
+                <div className="relative aspect-[4/3] w-full">
+                  <Image
+                    src={beforeImages[comparison.index]}
+                    alt="Before"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-                <p className="mb-2 text-sm font-medium text-slate-600 dark:text-slate-300">Before</p>
-                <p className="text-xs text-slate-500 dark:text-slate-400">{t(comparison.beforeKey)}</p>
-                <p className="mt-4 text-xs text-slate-400 dark:text-slate-500">{t("placeholder_label")}</p>
+                <div className="border-t border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-700 dark:bg-slate-800/50">
+                  <p className="text-sm font-medium text-slate-600 dark:text-slate-300">Before</p>
+                </div>
               </div>
-              <div className="rounded-xl border-2 border-dashed border-slate-300 bg-white p-8 text-center dark:border-slate-700 dark:bg-slate-800">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-slate-100 mx-auto dark:bg-slate-700">
-                  <ImageIcon className="h-8 w-8 text-slate-400" />
+              <div className="overflow-hidden rounded-xl border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-800">
+                <div className="relative aspect-[4/3] w-full">
+                  <Image
+                    src={afterImages[comparison.index]}
+                    alt="After"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
-                <p className="mb-2 text-sm font-medium text-slate-600 dark:text-slate-300">After</p>
-                <p className="text-xs text-slate-500 dark:text-slate-400">{t(comparison.afterKey)}</p>
-                <p className="mt-4 text-xs text-slate-400 dark:text-slate-500">{t("placeholder_label")}</p>
+                <div className="border-t border-slate-200 bg-slate-50 px-4 py-3 dark:border-slate-700 dark:bg-slate-800/50">
+                  <p className="text-sm font-medium text-slate-600 dark:text-slate-300">After</p>
+                </div>
               </div>
             </div>
             <div className="mt-4 flex items-center justify-center gap-2 text-sm text-slate-600 dark:text-slate-300">

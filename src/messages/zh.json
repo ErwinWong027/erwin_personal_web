@@ -172,8 +172,7 @@
     "compare3_title": "从长单页到混合式信息架构",
     "compare3_before": "单页结构占位图",
     "compare3_after": "独立分页版本占位图",
-    "compare3_caption": "对比重点：将长内容拆分出去，降低首页负担，提升阅读流与导航清晰度。",
-    "placeholder_label": "占位图，后续替换真实截图"
+    "compare3_caption": "对比重点：将长内容拆分出去，降低首页负担，提升阅读流与导航清晰度。"
   },
   "aiChat": {
     "title": "咨询我的 AI",
@@ -450,7 +449,6 @@
     "location_value": "深圳 / 杭州"
   },
   "footer": {
-    "copyright": "© 2026 Erwin Wang. Built with Next.js & AI.",
-    "source": "本站由 AI 辅助构建"
+    "copyright": "© 2026 Erwin Wang. Built with Next.js & AI."
   }
 }

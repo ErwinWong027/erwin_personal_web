@@ -10,9 +10,6 @@ export function Footer() {
           {t("copyright")}
         </p>
         <div className="flex items-center gap-4">
-          <span className="text-xs text-slate-400 dark:text-slate-500">
-            {t("source")}
-          </span>
           <a
             href="mailto:zihan.wang@edhec.com"
             className="text-slate-400 transition-colors hover:text-primary-500 dark:text-slate-500 dark:hover:text-primary-400"
@@ -21,7 +18,7 @@ export function Footer() {
             <Mail className="h-4 w-4" />
           </a>
           <a
-            href="https://github.com"
+            href="https://github.com/ErwinWong027"
             target="_blank"
             rel="noopener noreferrer"
             className="text-slate-400 transition-colors hover:text-primary-500 dark:text-slate-500 dark:hover:text-primary-400"

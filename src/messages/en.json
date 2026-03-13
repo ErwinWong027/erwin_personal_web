@@ -172,8 +172,7 @@
     "compare3_title": "From Long Single-Page to Hybrid Information Architecture",
     "compare3_before": "Single-page structure placeholder",
     "compare3_after": "Separate pages version placeholder",
-    "compare3_caption": "Key comparison: Split long content out, reducing homepage burden, improving reading flow and navigation clarity.",
-    "placeholder_label": "Placeholder, to be replaced with real screenshots"
+    "compare3_caption": "Key comparison: Split long content out, reducing homepage burden, improving reading flow and navigation clarity."
   },
   "aiChat": {
     "title": "Ask My AI",
@@ -450,7 +449,6 @@
     "location_value": "Shenzhen / Hangzhou"
   },
   "footer": {
-    "copyright": "© 2026 Erwin Wang. Built with Next.js & AI.",
-    "source": "This site was built with AI assistance"
+    "copyright": "© 2026 Erwin Wang. Built with Next.js & AI."
   }
 }
