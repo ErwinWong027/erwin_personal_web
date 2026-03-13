@@ -36,7 +36,7 @@ const projectTags = [
   ["Dify", "AI Chatbot", "新能源"],
   ["多模态", "PDF解析", "名片生成"],
   ["RAG", "Qwen3", "数字分身"],
-  ["AI Agent", "Vision-loop", "自动填写"],
+  ["产品创新", "可持续", "智能硬件"],
   ["三创赛", "商业模式", "校特等"],
   ["三创赛", "省二", "指导老师奖"],
   ["互联网+", "创业", "创新"],
@@ -198,7 +198,7 @@ export function ProjectGallery() {
     {
       workTagKey: "work1_tag" as const,
       workUrl: "https://github.com/ErwinWong027/findbestev",
-      imageUrl: null,
+      imageUrl: "/images/findbestev-cover.png",
       projectTitleKey: "project1_title" as const,
       projectRoleKey: "project1_role" as const,
       projectDateKey: "project1_date" as const,
@@ -207,7 +207,7 @@ export function ProjectGallery() {
     {
       workTagKey: "work2_tag" as const,
       workUrl: "https://github.com/ErwinWong027/DEEP-HACKATHON-2025",
-      imageUrl: null,
+      imageUrl: "/images/谷歌开发者大会.png",
       projectTitleKey: "project2_title" as const,
       projectRoleKey: "project2_role" as const,
       projectDateKey: "project2_date" as const,
@@ -216,7 +216,7 @@ export function ProjectGallery() {
     {
       workTagKey: "work3_tag" as const,
       workUrl: "https://github.com/ErwinWong027/autochat-bot",
-      imageUrl: null,
+      imageUrl: "/images/advx.png",
       projectTitleKey: "project3_title" as const,
       projectRoleKey: "project3_role" as const,
       projectDateKey: "project3_date" as const,
@@ -224,8 +224,8 @@ export function ProjectGallery() {
     },
     {
       workTagKey: "work4_tag" as const,
-      workUrl: "https://jianliark.com/",
-      imageUrl: null,
+      workUrl: "https://www.loreal.com/en/brands/consumer/brita/",
+      imageUrl: "/images/Larimar.png",
       projectTitleKey: "project4_title" as const,
       projectRoleKey: "project4_role" as const,
       projectDateKey: "project4_date" as const,
@@ -339,7 +339,7 @@ export function ProjectGallery() {
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading title={t("title")} subtitle={t("subtitle")} />
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {projectItems.map((item, i) => (
             <AnimateOnScroll key={i} delay={i * 0.1}>
               <div
@@ -348,7 +348,7 @@ export function ProjectGallery() {
                 }
                 className="group flex cursor-pointer overflow-hidden rounded-2xl border border-slate-200/80 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-slate-800/80 dark:bg-slate-900"
               >
-                <div className="relative w-28 flex-shrink-0 overflow-hidden">
+                <div className="relative w-40 flex-shrink-0 overflow-hidden">
                   {(() => {
                     const displayImage = getImageUrl(item.workUrl, item.imageUrl);
                     if (displayImage) {
@@ -360,8 +360,8 @@ export function ProjectGallery() {
                             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                           />
                           <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 backdrop-blur-md shadow-lg">
-                              <ImageIcon className="h-5 w-5 text-primary-500" />
+                            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 backdrop-blur-md shadow-lg">
+                              <ImageIcon className="h-6 w-6 text-primary-500" />
                             </div>
                           </div>
                         </>
@@ -373,11 +373,11 @@ export function ProjectGallery() {
                             className={`absolute inset-0 bg-gradient-to-br ${galleryGradients[i]} transition-transform duration-500 group-hover:scale-105`}
                           />
                           <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/25 backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:bg-white/35">
+                            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/25 backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:bg-white/35">
                               {isPdfFile(item.workUrl) ? (
-                                <FileText className="h-4 w-4 fill-white text-white" />
+                                <FileText className="h-5 w-5 fill-white text-white" />
                               ) : (
-                                <Play className="h-4 w-4 fill-white text-white" />
+                                <Play className="h-5 w-5 fill-white text-white" />
                               )}
                             </div>
                           </div>
@@ -386,32 +386,32 @@ export function ProjectGallery() {
                     }
                   })()}
 
-                  <div className="absolute top-2 left-2">
-                    <span className="rounded-full bg-black/30 px-2 py-0.5 text-[9px] font-medium text-white backdrop-blur-md">
+                  <div className="absolute top-3 left-3">
+                    <span className="rounded-full bg-black/30 px-2.5 py-1 text-[10px] font-medium text-white backdrop-blur-md">
                       {t(item.workTagKey)}
                     </span>
                   </div>
                 </div>
 
-                <div className="flex flex-1 flex-col justify-between p-4">
+                <div className="flex flex-1 flex-col justify-between p-5">
                   <div>
                     <div
-                      className={`mb-2 h-0.5 w-8 rounded-full bg-gradient-to-r ${gradients[i]}`}
+                      className={`mb-3 h-0.5 w-10 rounded-full bg-gradient-to-r ${gradients[i]}`}
                     />
 
-                    <h3 className="text-sm font-semibold leading-snug text-slate-800 dark:text-slate-100">
+                    <h3 className="text-base font-semibold leading-snug text-slate-800 dark:text-slate-100">
                       {t(item.projectTitleKey)}
                     </h3>
 
-                    <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                    <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                       {t(item.projectDescKey)}
                     </p>
 
-                    <div className="mt-3 flex flex-wrap gap-1.5">
+                    <div className="mt-4 flex flex-wrap gap-2">
                       {projectTags[i].map((tag, j) => (
                         <span
                           key={tag}
-                          className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${tagColors[j % tagColors.length]}`}
+                          className={`rounded-full px-2.5 py-1 text-xs font-medium ${tagColors[j % tagColors.length]}`}
                         >
                           {tag}
                         </span>
@@ -419,13 +419,13 @@ export function ProjectGallery() {
                     </div>
                   </div>
 
-                  <div className="mt-3 flex items-center justify-between border-t border-slate-100 pt-3 dark:border-slate-800">
-                    <div className="flex items-center gap-1.5 text-[10px] text-slate-500 dark:text-slate-400">
-                      <User className="h-2.5 w-2.5" />
+                  <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-4 dark:border-slate-800">
+                    <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                      <User className="h-3 w-3" />
                       {t(item.projectRoleKey)}
                     </div>
-                    <div className="flex items-center gap-1 text-[10px] text-slate-500 dark:text-slate-400">
-                      <Calendar className="h-2.5 w-2.5" />
+                    <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
+                      <Calendar className="h-3 w-3" />
                       {t(item.projectDateKey)}
                     </div>
                   </div>

@@ -12,7 +12,6 @@ export function IterationSummary() {
   const t = useTranslations("iterationSummary");
   const locale = useLocale();
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
   const [progress, setProgress] = useState(0);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const progressRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -60,22 +59,17 @@ export function IterationSummary() {
   }, [advance]);
 
   useEffect(() => {
-    if (!paused) {
-      startCycle();
-    } else {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-      if (progressRef.current) clearInterval(progressRef.current);
-    }
+    startCycle();
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
       if (progressRef.current) clearInterval(progressRef.current);
     };
-  }, [paused, startCycle]);
+  }, [startCycle]);
 
   const goTo = (idx: number) => {
     setActive(idx);
     setProgress(0);
-    if (!paused) startCycle();
+    startCycle();
   };
 
   const activeStage = stages[active];
@@ -91,11 +85,7 @@ export function IterationSummary() {
         </AnimateOnScroll>
 
         <AnimateOnScroll>
-          <div
-            className="relative"
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-          >
+          <div className="relative">
             {/* Step tabs */}
             <div className="flex items-stretch gap-0 relative">
               {stages.map((stage, i) => {
@@ -171,7 +161,7 @@ export function IterationSummary() {
               </ul>
             </div>
 
-            {/* Dot nav + pause indicator */}
+            {/* Dot nav */}
             <div className="mt-5 flex items-center justify-center gap-3">
               {stages.map((_, i) => (
                 <button
@@ -182,9 +172,6 @@ export function IterationSummary() {
                   aria-label={`Go to phase ${i + 1}`}
                 />
               ))}
-              <span className={`ml-2 text-xs text-slate-400 dark:text-slate-500 transition-opacity ${paused ? "opacity-100" : "opacity-0"}`}>
-                已暂停
-              </span>
             </div>
           </div>
         </AnimateOnScroll>

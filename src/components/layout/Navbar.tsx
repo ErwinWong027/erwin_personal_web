@@ -148,7 +148,7 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <button
             onClick={switchLocale}
-            className="rounded-lg p-2 text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-100"
+            className="rounded-lg p-2 text-slate-500 transition-colors hover:bg-primary-100 hover:text-primary-600 dark:text-slate-400 dark:hover:bg-primary-900/30 dark:hover:text-primary-400"
             aria-label="Switch language"
           >
             <Globe className="h-4 w-4" />
@@ -158,8 +158,8 @@ export function Navbar() {
               onClick={() => currentLocale !== "zh" && switchLocale()}
               className={`rounded px-2 py-1 text-xs font-medium transition-all ${
                 currentLocale === "zh"
-                  ? "bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900"
-                  : "text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
+                  ? "bg-primary-500 text-white"
+                  : "text-slate-600 hover:text-primary-600 dark:text-slate-400 dark:hover:text-primary-400"
               }`}
             >
               中
@@ -168,8 +168,8 @@ export function Navbar() {
               onClick={() => currentLocale !== "en" && switchLocale()}
               className={`rounded px-2 py-1 text-xs font-medium transition-all ${
                 currentLocale === "en"
-                  ? "bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900"
-                  : "text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100"
+                  ? "bg-primary-500 text-white"
+                  : "text-slate-600 hover:text-primary-600 dark:text-slate-400 dark:hover:text-primary-400"
               }`}
             >
               EN

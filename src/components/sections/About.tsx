@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { GraduationCap, Briefcase, FolderGit2, FileCode2 } from "lucide-react";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SquirclePhoto } from "@/components/ui/SquirclePhoto";
 
 const skills = [
   "AI Agent 设计",
@@ -61,11 +62,14 @@ export function About() {
           {/* Description */}
           <AnimateOnScroll className="lg:col-span-3">
             <div className="flex items-start gap-6">
-              <img
-                src="/images/avatar.png"
-                alt="Erwin Avatar"
-                className="hidden h-20 w-20 shrink-0 rounded-2xl object-cover shadow-md sm:flex"
-              />
+              <div className="hidden shrink-0 sm:flex">
+                <SquirclePhoto
+                  src="/images/avatar.png"
+                  alt="Erwin Avatar"
+                  size={80}
+                  variant="circle"
+                />
+              </div>
               <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
                 {t("description")}
               </p>

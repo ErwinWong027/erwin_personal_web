@@ -105,7 +105,7 @@ export function TimelineCard({
           {/* 学校Logo - 显示在对侧 */}
           {imageSrc && (
             <div className={`absolute top-6 hidden md:block ${position === "left" ? "left-full ml-16" : "right-full mr-16"}`}>
-              <div className="relative h-16 w-24 overflow-hidden rounded-lg bg-white shadow-md">
+              <div className={`relative overflow-hidden rounded-lg bg-white shadow-md ${index === 0 ? "h-20 w-32" : "h-16 w-24"}`}>
                 <Image
                   src={imageSrc}
                   alt={imageAlt || title}
