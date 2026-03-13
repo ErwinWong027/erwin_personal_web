@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 
 interface TimelineCardProps {
@@ -7,10 +8,14 @@ interface TimelineCardProps {
   role: string;
   period: string;
   description?: string;
-  highlights?: string[];
+  highlights?: readonly string[];
+  background?: string;
   color: string;
   position: "left" | "right";
   index: number;
+  variant?: "education" | "work";
+  imageSrc?: string;
+  imageAlt?: string;
 }
 
 export function TimelineCard({
@@ -19,10 +24,57 @@ export function TimelineCard({
   period,
   description,
   highlights,
+  background,
   color,
   position,
   index,
+  variant = "education",
+  imageSrc,
+  imageAlt,
 }: TimelineCardProps) {
+  if (variant === "work") {
+    return (
+      <AnimateOnScroll delay={index * 0.1}>
+        <div className={`relative w-full rounded-xl border-2 border-slate-800 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${color}`}>
+          <div className="flex flex-col md:flex-row">
+            {/* 左栏：基本信息 */}
+            <div className="flex flex-col justify-start border-b-2 border-slate-800 p-6 md:w-2/5 md:border-b-0 md:border-r-2">
+              <div className="mb-2 text-xs font-bold uppercase tracking-wider text-slate-700">
+                {period}
+              </div>
+              <h3 className="mb-1 text-lg font-bold text-slate-900">{title}</h3>
+              <p className="mb-4 text-sm font-semibold text-slate-700">{role}</p>
+              {background && (
+                <p className="text-sm leading-relaxed text-slate-800">
+                  {background}
+                </p>
+              )}
+            </div>
+
+            {/* 右栏：成果亮点 */}
+            <div className="p-6 md:w-3/5">
+              {highlights && highlights.length > 0 && (
+                <ol className="space-y-3">
+                  {highlights.map((highlight, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-start gap-3 text-sm text-slate-800"
+                    >
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-slate-800 text-xs font-bold text-white">
+                        {idx + 1}
+                      </span>
+                      <span className="leading-relaxed">{highlight}</span>
+                    </li>
+                  ))}
+                </ol>
+              )}
+            </div>
+          </div>
+        </div>
+      </AnimateOnScroll>
+    );
+  }
+
   return (
     <AnimateOnScroll delay={index * 0.1}>
       <div
@@ -50,6 +102,20 @@ export function TimelineCard({
         <div
           className={`relative flex-1 rounded-xl border-2 border-slate-800 p-6 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${color}`}
         >
+          {/* 学校Logo - 显示在对侧 */}
+          {imageSrc && (
+            <div className={`absolute top-6 hidden md:block ${position === "left" ? "left-full ml-16" : "right-full mr-16"}`}>
+              <div className="relative h-16 w-24 overflow-hidden rounded-lg bg-white shadow-md">
+                <Image
+                  src={imageSrc}
+                  alt={imageAlt || title}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+          )}
+          
           {/* 时间段 */}
           <div className="mb-3 text-xs font-bold uppercase tracking-wider text-slate-700">
             {period}

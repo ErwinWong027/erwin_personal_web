@@ -29,7 +29,7 @@ function TypeWriter({ text, delay = 60 }: { text: string; delay?: number }) {
     <span>
       {displayed}
       <span
-        className={`inline-block w-0.5 h-[1.1em] align-text-bottom bg-primary-400 ${
+        className={`inline-block w-0.5 h-[1.1em] align-text-bottom bg-cyan-400 ${
           done ? "animate-pulse" : ""
         }`}
       />
@@ -46,7 +46,7 @@ export function Hero() {
       className="relative flex min-h-screen items-center justify-center overflow-hidden"
     >
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-primary-50/30 to-slate-100 dark:from-slate-950 dark:via-primary-950/20 dark:to-slate-900" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-cyan-50/30 to-slate-100 dark:from-slate-950 dark:via-cyan-950/20 dark:to-slate-900" />
 
       {/* Subtle grid pattern */}
       <div
@@ -62,7 +62,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-sm font-medium tracking-widest text-primary-600 uppercase dark:text-primary-400"
+          className="text-sm font-medium tracking-widest text-primary-500 uppercase dark:text-primary-400"
         >
           {t("greeting")}
         </motion.p>
@@ -108,7 +108,7 @@ export function Hero() {
                 .querySelector("#projects")
                 ?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="inline-flex items-center gap-2 rounded-full bg-primary-600 px-6 py-3 text-sm font-medium text-white shadow-lg shadow-primary-600/20 transition-all hover:-translate-y-0.5 hover:bg-primary-700 hover:shadow-xl hover:shadow-primary-600/30"
+            className="inline-flex items-center gap-2 rounded-full bg-primary-500 px-6 py-3 text-sm font-medium text-white shadow-lg shadow-primary-500/20 transition-all hover:-translate-y-0.5 hover:bg-cyan-600 hover:shadow-xl hover:shadow-primary-500/30"
           >
             {t("cta_projects")}
             <ArrowDown className="h-4 w-4" />

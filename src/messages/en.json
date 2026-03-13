@@ -118,7 +118,6 @@
     "metrics3": "AI-assisted process from planning to deployment",
     "metrics4": "Portfolio assistant powered by Qwen-Plus",
     "section1_title": "Core Build Logic",
-    "section1_intro": "In this project, AI wasn't just a \"code generator\" but a collaborative tool that participated in problem definition, structure planning, page implementation, feature expansion, and continuous optimization.",
     "logic1_title": "Define audience first, then define pages",
     "logic1_body": "I first clarified that the website serves recruiters and interviewers, so the focus isn't \"showing more\" but \"letting them quickly understand who I am, what I've done, and how I think\".",
     "logic2_title": "Structure first, then generate implementation",
@@ -173,9 +172,7 @@
     "compare3_before": "Single-page structure placeholder",
     "compare3_after": "Separate pages version placeholder",
     "compare3_caption": "Key comparison: Split long content out, reducing homepage burden, improving reading flow and navigation clarity.",
-    "placeholder_label": "Placeholder, to be replaced with real screenshots",
-    "section5_title": "Final Summary",
-    "section5_body": "This website wasn't generated in one shot, but gradually converged through multiple rounds of \"define-generate-evaluate-optimize\" under real goal constraints. For me, AI's most valuable aspect isn't replacing judgment, but amplifying judgment and iteration efficiency."
+    "placeholder_label": "Placeholder, to be replaced with real screenshots"
   },
   "aiChat": {
     "title": "Ask My AI",
@@ -237,8 +234,8 @@
     "t10_subtitle": "Product & Full-Stack Dev",
     "t10_desc": "Built a context-aware conversational AI Agent using RAG, with sentence-transformers + LanceDB for a local dialogue knowledge base and Qwen3 for two-stage reasoning, exploring AI-powered social connection.",
     "t10_tag": "Project",
-    "t11_title": "University of London · CS (AI Direction)",
-    "t11_subtitle": "Online Education · Top 10%",
+    "t11_title": "University of London (Online) · CS (AI Direction)",
+    "t11_subtitle": "Top 10%",
     "t11_desc": "Enrolled in a Computer Science & AI bachelor's degree online, systematically studying SQL, Python, software engineering, machine learning, intelligent agents, RAG, and fine-tuning to continuously strengthen AI engineering capabilities.",
     "t11_tag": "Education",
     "t12_title": "Google Developer Hackathon · AI Business Card Generator",
@@ -250,7 +247,80 @@
     "t13_desc": "Designed an AI consulting platform for EV purchasing decisions built on Dify, integrating an AI chatbot for smart Q&A and personalized recommendations based on budget, range, and charging conditions.",
     "t13_tag": "Project",
     "section_education": "Education",
-    "section_work": "Work Experience"
+    "section_work": "Work Experience",
+    "edu_edhec": {
+      "title": "EDHEC Business School (France)",
+      "role": "M.S. Corporate Strategy & M.S. Innovation & Entrepreneurship",
+      "period": "2022.07 - 2025.02",
+      "highlights": [
+        "Financial Times European Top 10 · Management Top 5",
+        "QS Global MBA Top 50",
+        "Top 20% of class"
+      ]
+    },
+    "edu_uol": {
+      "title": "University of London (Online)",
+      "role": "B.Sc. · Computer Science (AI Direction)",
+      "period": "2025.09 - 2026.02",
+      "highlights": [
+        "Coursera online: Database SQL, Python Programming",
+        "Software Engineering, AI & Machine Learning",
+        "Intelligent Agents, RAG & Fine-tuning"
+      ]
+    },
+    "edu_bachelor": {
+      "title": "Jiangxi University of Finance & Economics",
+      "role": "B.Sc. · Marketing (Project Investment & Brand Strategy)",
+      "period": "2018.09 - 2022.06",
+      "highlights": [
+        "National Finance Universities Top 7",
+        "Outstanding Graduate (Top 5%), First-Class Academic Scholarship, Merit Student",
+        "National entrepreneurship project lead, Provincial Special Prize"
+      ]
+    },
+    "work_jobark": {
+      "title": "Job Application AI (求职方舟)",
+      "role": "AI Product Manager · Hangzhou, China",
+      "period": "2025.04 - 2025.12",
+      "background": "Context: To address two core pain points in job applications — repetitive manual work and lack of feedback — by shipping features including one-click form fill, application tracking, and resume optimization to improve DNU.",
+      "highlights": [
+        "Product Design: Designed the core AI Agent capability chain — intent recognition → job recommendation → page comprehension → auto-fill → status feedback. Built a chat-based UX for requirement collection; combined semantic vector similarity for job recommendations, achieving a 45% conversation-to-click conversion rate. Designed an in-plugin execution feedback mechanism exposing form match rate, field fill success rate, and page recognition state machine to improve explainability and user trust.",
+        "Strategy Iteration: Led the AI auto-apply plugin design and iteration, upgrading the architecture from static DOM/HTML+LLM parsing to a Vision-agent loop multimodal decision-execute cycle. Combined screenshots, DOM changes, and model inference to achieve AI perceive-decide-execute capability, dynamically adapting to 200+ company application pages with 92%+ fill accuracy and 30x user efficiency improvement. Proposed a self-learning optimization approach based on user correction behavior, reducing fill deviation from bad cases by 4%+.",
+        "Growth: Leveraged generative AI tools (Sora, Jimeng, RuningHub) to produce 10+ high-quality promotional videos in two weeks, driving 400+ user acquisitions via social media. Continuously tracked global AI Agent competitors (Simplify, Manus, JobWizard) and extracted reusable interaction patterns to feed back into product design."
+      ]
+    },
+    "work_bytedance": {
+      "title": "ByteDance",
+      "role": "Search Product Intern · Shanghai, China",
+      "period": "2024.09 - 2024.12",
+      "background": "Context: To improve TikTok North America search efficiency through case evaluation, data analysis, and A/B experiments — driving search conversion (opms) and GMV.",
+      "highlights": [
+        "Data Analysis: To drive ranking formula optimization, analyzed diff-cases in a ranking reversal experiment, performed root-cause attribution, and supported experiment design adjustments (qd posterior-based bucket adjustment, relaxed relevance after rank 20). A/B results: click rate +0.2%, opms +0.5%.",
+        "Product Card Trust Labels: Designed three trust signals for search result cards (Curated Product, Highly Rated Store, High Repurchase Store) to build Southeast Asia user trust. Independently completed competitive research, strategy design, and A/B experiments. Post-launch pv ctr A/B +1%.",
+        "Recommendation Strategy: Identified poor experience in the \"You May Also Like\" module via case review. Constrained recommendations to prioritize category-consistent items. A/B result: opms stable in test group, experience sampling positive — rolled out to full traffic."
+      ]
+    },
+    "work_iterative": {
+      "title": "ITERATIVE GAMES",
+      "role": "Game Economy & Web3 Product Intern · Paris, France",
+      "period": "2023.09 - 2023.12",
+      "background": "Context: The in-game economy system is NFT and token-based. The goal was to lower the barrier for Web2 players entering Web3, increasing NFT item purchase rates and transaction volume.",
+      "highlights": [
+        "Payment Drop-off Analysis: Instrumented item purchase steps and used Mixpanel funnel analysis to map player payment paths, identifying high drop-off points (crypto wallet binding and payment confirmation). Delivered a payment flow drop-off report.",
+        "NFT Purchase Flow Optimization: Combined data analysis with A/B testing to address crypto wallet friction for Web2 players. Optimized payment UX, simplified credit card and PayPal fiat flows, and added crypto wallet onboarding steps. Post-optimization: conversion rate +4%, payment success rate +7%."
+      ]
+    },
+    "work_crosspath": {
+      "title": "CrossPath",
+      "role": "Operations Assistant Intern · London, UK",
+      "period": "2023.06 - 2023.08",
+      "background": "Context: To strengthen CrossPath's employer partnerships by reaching HR decision-makers via LinkedIn and other channels to grow the number of partner companies.",
+      "highlights": [
+        "Maintained Airtable employee database with 98%+ accuracy and assisted HR in producing multiple operational reports.",
+        "Supported social media promotions including content publishing and preliminary data aggregation to boost brand exposure.",
+        "Built 3 core business automation workflows using Apollo, reducing repetitive operations and improving daily work efficiency by ~30%."
+      ]
+    }
   },
   "gallery": {
     "title": "Gallery",

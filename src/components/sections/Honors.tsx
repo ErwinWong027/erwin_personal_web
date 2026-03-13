@@ -23,7 +23,7 @@ const tagColors = [
 
 const gradients = [
   "from-rose-500 to-pink-600",
-  "from-cyan-500 to-blue-600",
+  "from-primary-500 to-blue-600",
   "from-lime-500 to-green-600",
   "from-fuchsia-500 to-purple-600",
   "from-red-500 to-rose-600",
@@ -38,7 +38,7 @@ const gradients = [
 const galleryGradients = [
   "from-rose-500/80 to-pink-600/80",
   "from-violet-500/80 to-indigo-600/80",
-  "from-cyan-500/80 to-blue-600/80",
+  "from-primary-500/80 to-blue-600/80",
   "from-amber-500/80 to-orange-600/80",
   "from-emerald-500/80 to-teal-600/80",
   "from-lime-500/80 to-green-600/80",
@@ -132,7 +132,7 @@ function MacOSModal({
               </div>
               <div className="px-6 pt-5 pb-2 text-center">
                 <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-100 dark:bg-primary-950/50">
-                  <ExternalLink className="h-6 w-6 text-primary-600 dark:text-primary-400" />
+                  <ExternalLink className="h-6 w-6 text-primary-500 dark:text-primary-400" />
                 </div>
                 <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">
                   {t("modal_title")}
@@ -150,7 +150,7 @@ function MacOSModal({
                 </button>
                 <button
                   onClick={() => { onClose(); window.open(url, "_blank", "noopener,noreferrer"); }}
-                  className="flex-1 rounded-xl bg-primary-600 px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-primary-700 hover:shadow-md"
+                  className="flex-1 rounded-xl bg-primary-500 px-4 py-2.5 text-sm font-medium text-white transition-all hover:bg-cyan-600 hover:shadow-md"
                 >
                   {t("modal_open")}
                 </button>
@@ -194,7 +194,7 @@ export function Honors() {
                         />
                         <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 backdrop-blur-md shadow-lg">
-                            <ImageIcon className="h-5 w-5 text-primary-600" />
+                            <ImageIcon className="h-5 w-5 text-primary-500" />
                           </div>
                         </div>
                       </>

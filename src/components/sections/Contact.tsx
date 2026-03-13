@@ -63,7 +63,7 @@ export function Contact() {
                 className="flex items-center gap-4 rounded-xl border border-slate-200/80 bg-white p-4 transition-shadow hover:shadow-md dark:border-slate-800/80 dark:bg-slate-900"
               >
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary-50 dark:bg-primary-950/50">
-                  <item.icon className="h-5 w-5 text-primary-600 dark:text-primary-400" />
+                  <item.icon className="h-5 w-5 text-primary-500 dark:text-primary-400" />
                 </div>
                 <div>
                   <p className="text-xs font-medium text-slate-400 dark:text-slate-500">
@@ -72,7 +72,7 @@ export function Contact() {
                   {item.href ? (
                     <a
                       href={item.href}
-                      className="text-sm font-medium text-slate-700 transition-colors hover:text-primary-600 dark:text-slate-200 dark:hover:text-primary-400"
+                      className="text-sm font-medium text-slate-700 transition-colors hover:text-primary-500 dark:text-slate-200 dark:hover:text-primary-400"
                     >
                       {item.value}
                     </a>
@@ -126,7 +126,7 @@ export function Contact() {
                     pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                   })}
                   className={`w-full rounded-xl border bg-transparent px-4 py-3 text-sm outline-none transition-colors focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 ${
-                    errors.email
+                      errors.email
                       ? "border-red-400"
                       : "border-slate-200 dark:border-slate-700"
                   }`}
@@ -145,7 +145,7 @@ export function Contact() {
                   rows={4}
                   {...register("message", { required: true })}
                   className={`w-full resize-none rounded-xl border bg-transparent px-4 py-3 text-sm outline-none transition-colors focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 ${
-                    errors.message
+                      errors.message
                       ? "border-red-400"
                       : "border-slate-200 dark:border-slate-700"
                   }`}
@@ -154,7 +154,7 @@ export function Contact() {
 
               <button
                 type="submit"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary-600 px-6 py-3 text-sm font-medium text-white transition-all hover:-translate-y-0.5 hover:bg-primary-700 hover:shadow-lg hover:shadow-primary-600/20"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary-500 px-6 py-3 text-sm font-medium text-white transition-all hover:-translate-y-0.5 hover:bg-cyan-600 hover:shadow-lg hover:shadow-primary-500/20"
               >
                 {t("form_submit")}
                 <Send className="h-4 w-4" />

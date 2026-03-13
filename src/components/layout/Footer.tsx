@@ -15,7 +15,7 @@ export function Footer() {
           </span>
           <a
             href="mailto:zihan.wang@edhec.com"
-            className="text-slate-400 transition-colors hover:text-primary-600 dark:text-slate-500 dark:hover:text-primary-400"
+            className="text-slate-400 transition-colors hover:text-primary-500 dark:text-slate-500 dark:hover:text-primary-400"
             aria-label="Email"
           >
             <Mail className="h-4 w-4" />
@@ -24,7 +24,7 @@ export function Footer() {
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-400 transition-colors hover:text-primary-600 dark:text-slate-500 dark:hover:text-primary-400"
+            className="text-slate-400 transition-colors hover:text-primary-500 dark:text-slate-500 dark:hover:text-primary-400"
             aria-label="GitHub"
           >
             <Github className="h-4 w-4" />

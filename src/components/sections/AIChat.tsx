@@ -262,7 +262,7 @@ export function AIChat() {
                     <button
                       type="submit"
                       disabled={!input.trim() || loading}
-                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-400 transition-all hover:bg-primary-600 hover:text-white disabled:cursor-not-allowed disabled:opacity-40 dark:bg-slate-800"
+                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-400 transition-all hover:bg-primary-500 hover:text-white disabled:cursor-not-allowed disabled:opacity-40 dark:bg-slate-800"
                       aria-label="Send"
                     >
                       <Send className="h-4 w-4" />
@@ -331,7 +331,7 @@ export function AIChat() {
                           <div
                             className={`rounded-2xl px-5 py-4 text-base leading-relaxed ${
                               msg.role === "user"
-                                ? "rounded-tr-md bg-primary-600 text-white shadow-md shadow-primary-500/20"
+                                ? "rounded-tr-md bg-primary-500 text-white shadow-md shadow-primary-500/20"
                                 : "rounded-tl-md bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-200"
                             }`}
                           >
@@ -421,12 +421,12 @@ export function AIChat() {
                       onChange={(e) => setInput(e.target.value)}
                       placeholder={t("placeholder")}
                       disabled={loading}
-                      className="w-full rounded-2xl border-none bg-slate-50 py-4 pl-6 pr-16 text-base outline-none ring-1 ring-slate-200 transition-all focus:bg-white focus:ring-2 focus:ring-primary-500 disabled:opacity-50 dark:bg-slate-800 dark:ring-slate-700 dark:placeholder:text-slate-500 dark:focus:ring-primary-400"
+                      className="w-full rounded-2xl border-none bg-slate-50 py-4 pl-6 pr-16 text-base outline-none ring-1 ring-slate-200 transition-all focus:bg-white focus:ring-2 focus:ring-primary-500 disabled:opacity-50 dark:bg-slate-800 dark:ring-slate-700 dark:placeholder:text-slate-500 dark:focus:ring-cyan-400"
                     />
                     <button
                       type="submit"
                       disabled={!input.trim() || loading}
-                      className="absolute right-2 flex h-11 w-11 items-center justify-center rounded-xl bg-primary-600 text-white shadow-lg transition-all hover:bg-primary-700 disabled:cursor-not-allowed disabled:opacity-40"
+                      className="absolute right-2 flex h-11 w-11 items-center justify-center rounded-xl bg-primary-500 text-white shadow-lg transition-all hover:bg-cyan-600 disabled:cursor-not-allowed disabled:opacity-40"
                       aria-label="Send"
                     >
                       <Send className="h-5 w-5" />

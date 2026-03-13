@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useTranslations } from "next-intl";
+
+const PHASE_INTERVAL_MS = 4000;
 import { motion, AnimatePresence } from "motion/react";
 import {
   Target,
@@ -22,6 +24,10 @@ import { BeforeAfterComparison } from "./BeforeAfterComparison";
 export function AIMethodology() {
   const t = useTranslations("aiMethod");
   const [activePhaseIndex, setActivePhaseIndex] = useState(0);
+  const [phasePaused, setPhasePaused] = useState(false);
+  const [phaseProgress, setPhaseProgress] = useState(0);
+  const phaseIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const phaseProgressRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const metrics = [
     { icon: RefreshCw, textKey: "metrics1" as const },
@@ -69,9 +75,9 @@ export function AIMethodology() {
       whatChangedKey: "phase1_what_changed" as const,
       whyMatteredKey: "phase1_why_mattered" as const,
       outputsKey: "phase1_outputs" as const,
-      color: "border-amber-400 dark:border-amber-500",
-      dotColor: "bg-amber-500",
-      bg: "bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-950/30 dark:to-amber-900/30",
+      color: "border-primary-400 dark:border-primary-500",
+      dotColor: "bg-primary-500",
+      bg: "bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-950/30 dark:to-primary-900/30",
     },
     {
       titleKey: "phase2_title" as const,
@@ -80,9 +86,9 @@ export function AIMethodology() {
       whatChangedKey: "phase2_what_changed" as const,
       whyMatteredKey: "phase2_why_mattered" as const,
       outputsKey: "phase2_outputs" as const,
-      color: "border-blue-400 dark:border-blue-500",
-      dotColor: "bg-blue-500",
-      bg: "bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/30 dark:to-blue-900/30",
+      color: "border-primary-400 dark:border-primary-500",
+      dotColor: "bg-primary-500",
+      bg: "bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-950/30 dark:to-primary-900/30",
     },
     {
       titleKey: "phase3_title" as const,
@@ -91,9 +97,9 @@ export function AIMethodology() {
       whatChangedKey: "phase3_what_changed" as const,
       whyMatteredKey: "phase3_why_mattered" as const,
       outputsKey: "phase3_outputs" as const,
-      color: "border-violet-400 dark:border-violet-500",
-      dotColor: "bg-violet-500",
-      bg: "bg-gradient-to-br from-violet-50 to-violet-100 dark:from-violet-950/30 dark:to-violet-900/30",
+      color: "border-primary-400 dark:border-primary-500",
+      dotColor: "bg-primary-500",
+      bg: "bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-950/30 dark:to-primary-900/30",
     },
     {
       titleKey: "phase4_title" as const,
@@ -102,11 +108,45 @@ export function AIMethodology() {
       whatChangedKey: "phase4_what_changed" as const,
       whyMatteredKey: "phase4_why_mattered" as const,
       outputsKey: "phase4_outputs" as const,
-      color: "border-emerald-400 dark:border-emerald-500",
-      dotColor: "bg-emerald-500",
-      bg: "bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-950/30 dark:to-emerald-900/30",
+      color: "border-primary-400 dark:border-primary-500",
+      dotColor: "bg-primary-500",
+      bg: "bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-950/30 dark:to-primary-900/30",
     },
   ];
+
+  const advancePhase = useCallback(() => {
+    setActivePhaseIndex((prev) => (prev + 1) % phases.length);
+    setPhaseProgress(0);
+  }, [phases.length]);
+
+  const startPhaseCycle = useCallback(() => {
+    if (phaseIntervalRef.current) clearInterval(phaseIntervalRef.current);
+    if (phaseProgressRef.current) clearInterval(phaseProgressRef.current);
+    setPhaseProgress(0);
+    phaseIntervalRef.current = setInterval(advancePhase, PHASE_INTERVAL_MS);
+    phaseProgressRef.current = setInterval(() => {
+      setPhaseProgress((p) => Math.min(p + 100 / (PHASE_INTERVAL_MS / 50), 100));
+    }, 50);
+  }, [advancePhase]);
+
+  useEffect(() => {
+    if (!phasePaused) {
+      startPhaseCycle();
+    } else {
+      if (phaseIntervalRef.current) clearInterval(phaseIntervalRef.current);
+      if (phaseProgressRef.current) clearInterval(phaseProgressRef.current);
+    }
+    return () => {
+      if (phaseIntervalRef.current) clearInterval(phaseIntervalRef.current);
+      if (phaseProgressRef.current) clearInterval(phaseProgressRef.current);
+    };
+  }, [phasePaused, startPhaseCycle]);
+
+  const goToPhase = (idx: number) => {
+    setActivePhaseIndex(idx);
+    setPhaseProgress(0);
+    if (!phasePaused) startPhaseCycle();
+  };
 
   const workflows = [
     { key: "workflow1" as const },
@@ -145,22 +185,17 @@ export function AIMethodology() {
 
         <AnimateOnScroll className="mb-20">
           <h3 className="mb-8 text-center text-2xl font-bold">{t("section1_title")}</h3>
-          <p className="mx-auto mb-12 max-w-3xl text-center text-base text-slate-600 dark:text-slate-300">
-            {t("section1_intro")}
-          </p>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-4">
             {logicItems.map((item) => (
               <div
                 key={item.titleKey}
-                className={`rounded-2xl ${item.bg} p-6 transition-all hover:shadow-md`}
+                className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all hover:border-slate-300 hover:shadow-md dark:border-slate-700 dark:bg-slate-800 dark:hover:border-slate-600"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white dark:bg-slate-800 shadow-sm">
-                    <item.icon className={`h-6 w-6 ${item.color}`} />
-                  </div>
-                  <h4 className="text-base font-bold">{t(item.titleKey)}</h4>
+                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 transition-colors group-hover:bg-slate-200 dark:bg-slate-700 dark:group-hover:bg-slate-600">
+                  <item.icon className={`h-5 w-5 ${item.color}`} />
                 </div>
-                <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                <h4 className="mb-2 text-base font-semibold">{t(item.titleKey)}</h4>
+                <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
                   {t(item.bodyKey)}
                 </p>
               </div>
@@ -170,7 +205,11 @@ export function AIMethodology() {
 
         <AnimateOnScroll className="mb-20">
           <h3 className="mb-8 text-center text-2xl font-bold">{t("section2_title")}</h3>
-          <div className="flex flex-col gap-8 md:flex-row md:gap-12">
+          <div
+            className="flex flex-col gap-8 md:flex-row md:gap-12"
+            onMouseEnter={() => setPhasePaused(true)}
+            onMouseLeave={() => setPhasePaused(false)}
+          >
             {/* Left: Phase navigation */}
             <div className="relative flex shrink-0 md:w-48">
               <div className="absolute top-0 bottom-0 left-3 w-px bg-slate-200 md:left-1/2 md:-translate-x-px dark:bg-slate-800" />
@@ -180,7 +219,7 @@ export function AIMethodology() {
                   return (
                     <li key={phase.titleKey} className="relative shrink-0 md:shrink">
                       <button
-                        onClick={() => setActivePhaseIndex(i)}
+                        onClick={() => goToPhase(i)}
                         className="group flex w-full items-center gap-3 py-3 pl-0 md:py-4 md:pl-0"
                       >
                         <div className="relative z-10 flex items-center justify-center md:mx-auto">
@@ -195,15 +234,25 @@ export function AIMethodology() {
                             }`}
                           />
                         </div>
-                        <span
-                          className={`whitespace-nowrap text-sm font-medium transition-colors duration-200 md:absolute md:right-full md:mr-5 ${
-                            isActive
-                              ? "text-slate-900 dark:text-slate-100"
-                              : "text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300"
-                          }`}
-                        >
-                          {t(phase.labelKey)}
-                        </span>
+                        <div className="flex flex-col items-start md:absolute md:right-full md:mr-5">
+                          <span
+                            className={`whitespace-nowrap text-sm font-medium transition-colors duration-200 ${
+                              isActive
+                                ? "text-slate-900 dark:text-slate-100"
+                                : "text-slate-400 group-hover:text-slate-600 dark:text-slate-500 dark:group-hover:text-slate-300"
+                            }`}
+                          >
+                            {t(phase.labelKey)}
+                          </span>
+                          {isActive && (
+                            <div className="mt-1 h-0.5 w-full rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                              <div
+                                className={`h-full rounded-full transition-none ${phase.dotColor}`}
+                                style={{ width: `${phaseProgress}%` }}
+                              />
+                            </div>
+                          )}
+                        </div>
                       </button>
                     </li>
                   );
@@ -281,15 +330,6 @@ export function AIMethodology() {
         </AnimateOnScroll>
 
         <BeforeAfterComparison />
-
-        <AnimateOnScroll className="mt-20 text-center">
-          <div className="mx-auto max-w-3xl rounded-2xl bg-gradient-to-br from-primary-50 to-primary-100 p-8 dark:from-primary-950/50 dark:to-primary-900/50">
-            <h3 className="mb-6 text-2xl font-bold">{t("section5_title")}</h3>
-            <p className="text-base leading-relaxed text-slate-700 dark:text-slate-300">
-              {t("section5_body")}
-            </p>
-          </div>
-        </AnimateOnScroll>
       </div>
     </section>
   );
