@@ -1,32 +1,10 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="wingGradientLeft" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a365d"/>
-      <stop offset="100%" style="stop-color:#3182ce"/>
-    </linearGradient>
-    <linearGradient id="wingGradientRight" x1="100%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a365d"/>
-      <stop offset="100%" style="stop-color:#3182ce"/>
-    </linearGradient>
-    <linearGradient id="centerGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#f6ad55"/>
-      <stop offset="100%" style="stop-color:#ed8936"/>
-    </linearGradient>
-  </defs>
-  
-  <path d="M16 14C16 14 14 8 10 6C6 4 2 6 2 6C2 6 4 10 6 12C8 14 12 16 16 16C12 14 10 12 9 10C8 8 8 6 8 6C8 6 10 7 12 9C14 11 16 14 16 14Z" fill="url(#wingGradientLeft)" opacity="0.9"/>
-  
-  <path d="M16 14C16 14 18 8 22 6C26 4 30 6 30 6C30 6 28 10 26 12C24 14 20 16 16 16C20 14 22 12 23 10C24 8 24 6 24 6C24 6 22 7 20 9C18 11 16 14 16 14Z" fill="url(#wingGradientRight)" opacity="0.9"/>
-  
-  <path d="M16 16C16 16 14 12 12 10C10 8 8 8 8 8C8 8 10 12 12 14C14 16 16 16 16 16Z" fill="url(#wingGradientLeft)" opacity="0.7"/>
-  
-  <path d="M16 16C16 16 18 12 20 10C22 8 24 8 24 8C24 8 22 12 20 14C18 16 16 16 16 16Z" fill="url(#wingGradientRight)" opacity="0.7"/>
-  
-  <ellipse cx="16" cy="15" rx="2" ry="3" fill="url(#centerGradient)"/>
-  
-  <path d="M14 18C14 18 12 22 10 24C8 26 6 26 6 26C6 26 8 24 10 22C12 20 14 18 14 18Z" fill="url(#wingGradientLeft)" opacity="0.6"/>
-  
-  <path d="M18 18C18 18 20 22 22 24C24 26 26 26 26 26C26 26 24 24 22 22C20 20 18 18 18 18Z" fill="url(#wingGradientRight)" opacity="0.6"/>
-  
-  <circle cx="16" cy="13" r="1.5" fill="#1a365d"/>
+<svg width="32" height="32" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+   <path d="M48 25C35 25 22 35 18 55C17 65 20 75 25 82L48 95V25Z" fill="#1F4788"/>
+   <path d="M46 32L22 45M46 42L25 55M46 52L28 65M46 62L32 75" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+
+   <path d="M52 35C65 35 78 45 82 65C83 75 80 85 75 92L52 105V35Z" fill="white" stroke="#1F4788" stroke-width="1"/>
+   <path d="M54 42L78 55M54 52L75 65M54 62L72 75M54 72L68 85" stroke="#1F4788" stroke-width="1.5" stroke-linecap="round"/>
+
+   <path d="M15 15H85V85L50 110L15 85V15Z" fill="none" stroke="#1F4788" stroke-width="3" stroke-linejoin="round"/>
+   <path d="M15 50H85M50 15V110" stroke="#1F4788" stroke-width="1.5"/>
 </svg>
