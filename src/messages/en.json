@@ -187,7 +187,7 @@
     "disclaimer": "Scroll down for more details",
     "q1": "Tell me about Erwin",
     "q2": "What AI projects has he worked on?",
-    "q3": "What did he do at ByteDance?",
+    "q3": "What did he do at Alibaba?",
     "q4": "How was this website built?",
     "q5": "What were his results at the job AI startup?"
   },
@@ -222,9 +222,9 @@
     "t7_subtitle": "Gaming Company · Paris, France",
     "t7_desc": "Used Mixpanel funnel analysis to identify NFT payment drop-off points, ran A/B tests to optimize payment UX, simplified fiat payment flow and added crypto wallet onboarding steps. Conversion rate improved 4%, payment success rate up 7%.",
     "t7_tag": "Internship",
-    "t8_title": "ByteDance · Search Product Intern",
-    "t8_subtitle": "International E-Commerce Product · Shanghai",
-    "t8_desc": "Drove TikTok North America search optimization through case evaluation, data analysis, and A/B experiments (opms +0.5%). Independently designed product card trust labels (pv ctr A/B +1%) and led recommendation strategy optimization for full rollout.",
+    "t8_title": "Alibaba · Search Product Intern",
+    "t8_subtitle": "LAZADA · Hangzhou",
+    "t8_desc": "Drove Lazada Southeast Asia search optimization through case evaluation, data analysis, and A/B experiments (opms +0.5%). Independently designed product card trust labels (pv ctr A/B +1%) and led recommendation strategy optimization for full rollout.",
     "t8_tag": "Internship",
     "t9_title": "Job Application AI · AI Product Manager",
     "t9_subtitle": "Product Department · Hangzhou",
@@ -290,13 +290,13 @@
       ]
     },
     "work_bytedance": {
-      "title": "ByteDance",
-      "role": "Search Product Intern · Shanghai, China",
+      "title": "Alibaba",
+      "role": "Search Product Intern · Hangzhou, China",
       "period": "2024.09 - 2024.12",
-      "background": "Context: To improve TikTok North America search efficiency through case evaluation, data analysis, and A/B experiments — driving search conversion (opms) and GMV.",
+      "background": "Context: To improve Lazada Southeast Asia search efficiency through case evaluation, data analysis, and A/B experiments — driving search conversion (opms) and GMV.",
       "highlights": [
         "Data Analysis: To drive ranking formula optimization, analyzed diff-cases in a ranking reversal experiment, performed root-cause attribution, and supported experiment design adjustments (qd posterior-based bucket adjustment, relaxed relevance after rank 20). A/B results: click rate +0.2%, opms +0.5%.",
-        "Product Card Trust Labels: Designed three trust signals for search result cards (Curated Product, Highly Rated Store, High Repurchase Store) to build Southeast Asia user trust. Independently completed competitive research, strategy design, and A/B experiments. Post-launch pv ctr A/B +1%.",
+        "Product Card Trust Labels: Designed three trust signals for search result cards (Curated Product, Highly Rated Store, High Repurchase Store) to build Southeast Asia user trust. Independently completed competitive research, resource coordination, strategy design, and A/B experiments. Post-launch pv ctr A/B +1%.",
         "Recommendation Strategy: Identified poor experience in the \"You May Also Like\" module via case review. Constrained recommendations to prioritize category-consistent items. A/B result: opms stable in test group, experience sampling positive — rolled out to full traffic."
       ]
     },

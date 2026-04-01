@@ -11,7 +11,7 @@ export const portfolioKnowledge = {
 
   bio: `AI 产品经理，毕业于法国 EDHEC 商学院（企业战略与管理硕士，FT 欧洲 Top10）。
 本科就读于江西财经大学市场营销专业，专业前 5%，优秀毕业生。
-目前在深圳，专注于 AI Agent 产品设计与落地，曾参与字节跳动、求职方舟等产品工作。
+目前在深圳，专注于 AI Agent 产品设计与落地，曾参与阿里巴巴、求职方舟等产品工作。
 擅长将复杂业务问题转化为可执行的 AI 产品方案，具备 SQL 数据分析、A/B 实验设计与全栈开发能力。`,
 
   currentFocus:
@@ -114,12 +114,12 @@ export const portfolioKnowledge = {
         "主导 AI 自动投递 Agent 产品设计与迭代，推动技术架构从 DOM/HTML+LLM 静态解析升级为 Vision-agent loop 多模态循环决策，自主动态适配 200+ 企业申请页，填充准确率达 92%+，真实用户效率提升 30 倍。注册用户对话到推荐岗位转化率达 45%，两周产出 10+ 条宣传视频吸引 400+ 用户。",
     },
     {
-      company: "字节跳动",
-      role: "搜索产品实习生（国际电商）",
+      company: "阿里巴巴",
+      role: "搜索产品实习生（LAZADA）",
       period: "2024.09 - 2024.12",
-      location: "上海",
+      location: "杭州",
       highlights:
-        "负责 TikTok 北美市场搜索优化，通过数据分析与 A/B 实验推动排序公式优化（opms+0.5%），独立设计商品卡信任感标签（pv ctr a/b+1%），主导猜你喜欢策略优化并推全实验。",
+        "负责 Lazada 东南亚市场搜索优化，通过数据分析与 A/B 实验推动排序公式优化（opms+0.5%），独立设计商品卡信任感标签（pv ctr a/b+1%），主导猜你喜欢策略优化并推全实验。",
     },
     {
       company: "Iterative Games",
