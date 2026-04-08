@@ -468,7 +468,7 @@ The site now fully presents the complete story of "AI-iterated productized perso
 **User Input**: Read README and frontend project, rewrite all content based on `realProfile.json`, keep honors & awards unchanged.
 
 **Background**:
-The site originally used fictional character "吴邪" (from novel Naughty Takeaways, Zhejiang University Geophysics Engineer) as content prototype (`mockProfile.json`). Now fully replaced with real person Wang Zihan (Erwin) — AI Product Manager, with real background including EDHEC Business School, Alibaba, Qiuzhi Fangzhou, etc.
+The site originally used fictional character "吴邪" (from novel Naughty Takeaways, Zhejiang University Geophysics Engineer) as content prototype (`mockProfile.json`). Now fully replaced with real person Wang Zihan (Erwin) — AI Product Manager, with real background including EDHEC Business School, ByteDance, Qiuzhi Fangzhou, etc.
 
 **Modification Scope**:
 
